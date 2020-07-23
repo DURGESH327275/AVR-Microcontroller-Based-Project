@@ -1,0 +1,3430 @@
+
+DELHI METRO using AVR.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000014e4  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         000002c6  00800060  000014e4  00001558  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .stab         000006cc  00000000  00000000  00001820  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000085  00000000  00000000  00001eec  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000080  00000000  00000000  00001f78  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00002c07  00000000  00000000  00001ff8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000001a7  00000000  00000000  00004bff  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000158a  00000000  00000000  00004da6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000060  00000000  00000000  00006330  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000013b  00000000  00000000  00006390  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000095  00000000  00000000  000064cb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+       4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+       8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+       c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+      54:	11 24       	eor	r1, r1
+      56:	1f be       	out	0x3f, r1	; 63
+      58:	cf e5       	ldi	r28, 0x5F	; 95
+      5a:	d4 e0       	ldi	r29, 0x04	; 4
+      5c:	de bf       	out	0x3e, r29	; 62
+      5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+      60:	13 e0       	ldi	r17, 0x03	; 3
+      62:	a0 e6       	ldi	r26, 0x60	; 96
+      64:	b0 e0       	ldi	r27, 0x00	; 0
+      66:	e4 ee       	ldi	r30, 0xE4	; 228
+      68:	f4 e1       	ldi	r31, 0x14	; 20
+      6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+      6c:	05 90       	lpm	r0, Z+
+      6e:	0d 92       	st	X+, r0
+      70:	a6 32       	cpi	r26, 0x26	; 38
+      72:	b1 07       	cpc	r27, r17
+      74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+      76:	13 e0       	ldi	r17, 0x03	; 3
+      78:	a6 e2       	ldi	r26, 0x26	; 38
+      7a:	b3 e0       	ldi	r27, 0x03	; 3
+      7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+      7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+      80:	a6 32       	cpi	r26, 0x26	; 38
+      82:	b1 07       	cpc	r27, r17
+      84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+      86:	0e 94 7d 00 	call	0xfa	; 0xfa <main>
+      8a:	0c 94 70 0a 	jmp	0x14e0	; 0x14e0 <_exit>
+
+0000008e <__bad_interrupt>:
+      8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <lcd_cmd>:
+#include <avr/io.h>
+#include <util/delay.h>
+lcd_cmd(unsigned char cmd)
+{
+	
+	PORTD=cmd;      // select 8 bit mode lcd select
+      92:	82 bb       	out	0x12, r24	; 18
+	PORTC &= ~((1<<0)|(1<<1)) ; //RS=0 & RW=0 for for select cmd register
+      94:	85 b3       	in	r24, 0x15	; 21
+      96:	8c 7f       	andi	r24, 0xFC	; 252
+      98:	85 bb       	out	0x15, r24	; 21
+	
+	PORTC|=(1<<2) ;   // EN=1
+      9a:	aa 9a       	sbi	0x15, 2	; 21
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+      9c:	81 ee       	ldi	r24, 0xE1	; 225
+      9e:	94 e0       	ldi	r25, 0x04	; 4
+      a0:	01 97       	sbiw	r24, 0x01	; 1
+      a2:	f1 f7       	brne	.-4      	; 0xa0 <lcd_cmd+0xe>
+      a4:	00 c0       	rjmp	.+0      	; 0xa6 <lcd_cmd+0x14>
+      a6:	00 00       	nop
+	_delay_ms(5);
+	PORTC&=~(1<<2);     //EN =0
+      a8:	aa 98       	cbi	0x15, 2	; 21
+      aa:	81 ee       	ldi	r24, 0xE1	; 225
+      ac:	94 e0       	ldi	r25, 0x04	; 4
+      ae:	01 97       	sbiw	r24, 0x01	; 1
+      b0:	f1 f7       	brne	.-4      	; 0xae <lcd_cmd+0x1c>
+      b2:	00 c0       	rjmp	.+0      	; 0xb4 <lcd_cmd+0x22>
+      b4:	00 00       	nop
+	_delay_ms(5);
+
+}
+      b6:	08 95       	ret
+
+000000b8 <lcd_data>:
+lcd_data(unsigned char data)
+{
+	PORTD=data;
+      b8:	82 bb       	out	0x12, r24	; 18
+	PORTC |= (1<<0) ; //RS=1 for select cmd register
+      ba:	a8 9a       	sbi	0x15, 0	; 21
+	PORTC &= ~(1<<1);  //RW=0 for select write data
+      bc:	a9 98       	cbi	0x15, 1	; 21
+	PORTC |=(1<<2);   // EN=1
+      be:	aa 9a       	sbi	0x15, 2	; 21
+      c0:	81 ee       	ldi	r24, 0xE1	; 225
+      c2:	94 e0       	ldi	r25, 0x04	; 4
+      c4:	01 97       	sbiw	r24, 0x01	; 1
+      c6:	f1 f7       	brne	.-4      	; 0xc4 <lcd_data+0xc>
+      c8:	00 c0       	rjmp	.+0      	; 0xca <lcd_data+0x12>
+      ca:	00 00       	nop
+	_delay_ms(5);
+	PORTC&=~(1<<2);     //EN =0
+      cc:	aa 98       	cbi	0x15, 2	; 21
+      ce:	81 ee       	ldi	r24, 0xE1	; 225
+      d0:	94 e0       	ldi	r25, 0x04	; 4
+      d2:	01 97       	sbiw	r24, 0x01	; 1
+      d4:	f1 f7       	brne	.-4      	; 0xd2 <lcd_data+0x1a>
+      d6:	00 c0       	rjmp	.+0      	; 0xd8 <lcd_data+0x20>
+      d8:	00 00       	nop
+	_delay_ms(5);
+}
+      da:	08 95       	ret
+
+000000dc <lcd_string>:
+lcd_string(unsigned char* str)
+{int j;
+      dc:	cf 93       	push	r28
+      de:	df 93       	push	r29
+      e0:	ec 01       	movw	r28, r24
+	while(str[j]!='\0')
+      e2:	88 81       	ld	r24, Y
+      e4:	88 23       	and	r24, r24
+      e6:	31 f0       	breq	.+12     	; 0xf4 <lcd_string+0x18>
+	PORTC |=(1<<2);   // EN=1
+	_delay_ms(5);
+	PORTC&=~(1<<2);     //EN =0
+	_delay_ms(5);
+}
+lcd_string(unsigned char* str)
+      e8:	21 96       	adiw	r28, 0x01	; 1
+{int j;
+	while(str[j]!='\0')
+	{
+		lcd_data(str[j]);
+      ea:	0e 94 5c 00 	call	0xb8	; 0xb8 <lcd_data>
+	PORTC&=~(1<<2);     //EN =0
+	_delay_ms(5);
+}
+lcd_string(unsigned char* str)
+{int j;
+	while(str[j]!='\0')
+      ee:	89 91       	ld	r24, Y+
+      f0:	88 23       	and	r24, r24
+      f2:	d9 f7       	brne	.-10     	; 0xea <lcd_string+0xe>
+	{
+		lcd_data(str[j]);
+		j++;
+	}
+}
+      f4:	df 91       	pop	r29
+      f6:	cf 91       	pop	r28
+      f8:	08 95       	ret
+
+000000fa <main>:
+
+int main(void)
+{  DDRD=0xff;
+      fa:	8f ef       	ldi	r24, 0xFF	; 255
+      fc:	81 bb       	out	0x11, r24	; 17
+	DDRC=0xff;
+      fe:	84 bb       	out	0x14, r24	; 20
+	DDRA=0xff;
+     100:	8a bb       	out	0x1a, r24	; 26
+	DDRB=0xff;
+     102:	87 bb       	out	0x17, r24	; 23
+	PORTB=0xff;
+     104:	88 bb       	out	0x18, r24	; 24
+	PORTC|=((1<<3)|(1<<4)|(1<<5)|(1<<6)|(1<<7));
+     106:	85 b3       	in	r24, 0x15	; 21
+     108:	88 6f       	ori	r24, 0xF8	; 248
+     10a:	85 bb       	out	0x15, r24	; 21
+
+	
+	int i;
+	lcd_cmd(0x38);   // lcd ON
+     10c:	88 e3       	ldi	r24, 0x38	; 56
+     10e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_cmd(0x0c);  //display on cursor off
+     112:	8c e0       	ldi	r24, 0x0C	; 12
+     114:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     118:	80 e8       	ldi	r24, 0x80	; 128
+     11a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("Welcome To Delhi");	
+     11e:	80 e6       	ldi	r24, 0x60	; 96
+     120:	90 e0       	ldi	r25, 0x00	; 0
+     122:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     126:	80 ec       	ldi	r24, 0xC0	; 192
+     128:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("      METRO     ");	
+     12c:	81 e7       	ldi	r24, 0x71	; 113
+     12e:	90 e0       	ldi	r25, 0x00	; 0
+     130:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     134:	8f eb       	ldi	r24, 0xBF	; 191
+     136:	97 e2       	ldi	r25, 0x27	; 39
+     138:	a9 e0       	ldi	r26, 0x09	; 9
+     13a:	81 50       	subi	r24, 0x01	; 1
+     13c:	90 40       	sbci	r25, 0x00	; 0
+     13e:	a0 40       	sbci	r26, 0x00	; 0
+     140:	e1 f7       	brne	.-8      	; 0x13a <main+0x40>
+     142:	00 c0       	rjmp	.+0      	; 0x144 <main+0x4a>
+     144:	00 00       	nop
+_delay_ms(3000);
+lcd_cmd(0x01);    //lcd clear
+     146:	81 e0       	ldi	r24, 0x01	; 1
+     148:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+  
+
+			 PORTB&=~(1<<0);
+	 
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+	lcd_string("      Rithala     ");
+     14c:	0f 2e       	mov	r0, r31
+     14e:	f2 e8       	ldi	r31, 0x82	; 130
+     150:	6f 2e       	mov	r6, r31
+     152:	f0 e0       	ldi	r31, 0x00	; 0
+     154:	7f 2e       	mov	r7, r31
+     156:	f0 2d       	mov	r31, r0
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+	lcd_string("  METRO Station   ");
+     158:	0f 2e       	mov	r0, r31
+     15a:	f5 e9       	ldi	r31, 0x95	; 149
+     15c:	4f 2e       	mov	r4, r31
+     15e:	f0 e0       	ldi	r31, 0x00	; 0
+     160:	5f 2e       	mov	r5, r31
+     162:	f0 2d       	mov	r31, r0
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+						
+						
+			lcd_cmd(0x80);  // characters start from position 0 & row 1st
+			lcd_string("   Door is Open    ");
+     164:	08 ea       	ldi	r16, 0xA8	; 168
+     166:	10 e0       	ldi	r17, 0x00	; 0
+			lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+			lcd_string("                   ");
+     168:	cc eb       	ldi	r28, 0xBC	; 188
+     16a:	d0 e0       	ldi	r29, 0x00	; 0
+									_delay_ms(1500);
+									PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+									
+			
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+		lcd_string("  Door is Close    ");
+     16c:	0f 2e       	mov	r0, r31
+     16e:	f0 ed       	ldi	r31, 0xD0	; 208
+     170:	2f 2e       	mov	r2, r31
+     172:	f0 e0       	ldi	r31, 0x00	; 0
+     174:	3f 2e       	mov	r3, r31
+     176:	f0 2d       	mov	r31, r0
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+PORTA|=	(1<<2);  //Port A pin 2 is high
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+_delay_ms(2000);
+lcd_cmd(0x80);
+lcd_string(" Next Station is ");
+     178:	0f 2e       	mov	r0, r31
+     17a:	f4 ee       	ldi	r31, 0xE4	; 228
+     17c:	ef 2e       	mov	r14, r31
+     17e:	f0 e0       	ldi	r31, 0x00	; 0
+     180:	ff 2e       	mov	r15, r31
+     182:	f0 2d       	mov	r31, r0
+
+PORTB&=~(1<<1);  // for led
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+	lcd_string("   Rohini West     ");
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+	lcd_string("  METRO Station    ");
+     184:	0f 2e       	mov	r0, r31
+     186:	fc e1       	ldi	r31, 0x1C	; 28
+     188:	cf 2e       	mov	r12, r31
+     18a:	f1 e0       	ldi	r31, 0x01	; 1
+     18c:	df 2e       	mov	r13, r31
+     18e:	f0 2d       	mov	r31, r0
+								_delay_ms(1500);
+								PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+								
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+		lcd_string("   Door is close    ");
+     190:	0f 2e       	mov	r0, r31
+     192:	f0 e3       	ldi	r31, 0x30	; 48
+     194:	af 2e       	mov	r10, r31
+     196:	f1 e0       	ldi	r31, 0x01	; 1
+     198:	bf 2e       	mov	r11, r31
+     19a:	f0 2d       	mov	r31, r0
+/************************************************************************/
+/*                Rithala metro Station                                              */
+/************************************************************************/
+  
+
+			 PORTB&=~(1<<0);
+     19c:	c0 98       	cbi	0x18, 0	; 24
+	 
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     19e:	80 e8       	ldi	r24, 0x80	; 128
+     1a0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("      Rithala     ");
+     1a4:	c3 01       	movw	r24, r6
+     1a6:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     1aa:	80 ec       	ldi	r24, 0xC0	; 192
+     1ac:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station   ");
+     1b0:	c2 01       	movw	r24, r4
+     1b2:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     1b6:	8f eb       	ldi	r24, 0xBF	; 191
+     1b8:	97 e2       	ldi	r25, 0x27	; 39
+     1ba:	a9 e0       	ldi	r26, 0x09	; 9
+     1bc:	81 50       	subi	r24, 0x01	; 1
+     1be:	90 40       	sbci	r25, 0x00	; 0
+     1c0:	a0 40       	sbci	r26, 0x00	; 0
+     1c2:	e1 f7       	brne	.-8      	; 0x1bc <main+0xc2>
+     1c4:	00 c0       	rjmp	.+0      	; 0x1c6 <main+0xcc>
+     1c6:	00 00       	nop
+	_delay_ms(3000);
+	
+	
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     1c8:	ab 98       	cbi	0x15, 3	; 21
+     1ca:	8f ed       	ldi	r24, 0xDF	; 223
+     1cc:	93 e9       	ldi	r25, 0x93	; 147
+     1ce:	a4 e0       	ldi	r26, 0x04	; 4
+     1d0:	81 50       	subi	r24, 0x01	; 1
+     1d2:	90 40       	sbci	r25, 0x00	; 0
+     1d4:	a0 40       	sbci	r26, 0x00	; 0
+     1d6:	e1 f7       	brne	.-8      	; 0x1d0 <main+0xd6>
+     1d8:	00 c0       	rjmp	.+0      	; 0x1da <main+0xe0>
+     1da:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     1dc:	ab 9a       	sbi	0x15, 3	; 21
+						
+						
+			lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     1de:	80 e8       	ldi	r24, 0x80	; 128
+     1e0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+			lcd_string("   Door is Open    ");
+     1e4:	c8 01       	movw	r24, r16
+     1e6:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+			lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     1ea:	80 ec       	ldi	r24, 0xC0	; 192
+     1ec:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+			lcd_string("                   ");
+     1f0:	ce 01       	movw	r24, r28
+     1f2:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     1f6:	8f e7       	ldi	r24, 0x7F	; 127
+     1f8:	9a e1       	ldi	r25, 0x1A	; 26
+     1fa:	a6 e0       	ldi	r26, 0x06	; 6
+     1fc:	81 50       	subi	r24, 0x01	; 1
+     1fe:	90 40       	sbci	r25, 0x00	; 0
+     200:	a0 40       	sbci	r26, 0x00	; 0
+     202:	e1 f7       	brne	.-8      	; 0x1fc <main+0x102>
+     204:	00 c0       	rjmp	.+0      	; 0x206 <main+0x10c>
+     206:	00 00       	nop
+			_delay_ms(2000);
+							
+			PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     208:	8b b3       	in	r24, 0x1b	; 27
+     20a:	80 66       	ori	r24, 0x60	; 96
+     20c:	8b bb       	out	0x1b, r24	; 27
+			PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     20e:	dc 98       	cbi	0x1b, 4	; 27
+     210:	8f eb       	ldi	r24, 0xBF	; 191
+     212:	97 e2       	ldi	r25, 0x27	; 39
+     214:	a9 e0       	ldi	r26, 0x09	; 9
+     216:	81 50       	subi	r24, 0x01	; 1
+     218:	90 40       	sbci	r25, 0x00	; 0
+     21a:	a0 40       	sbci	r26, 0x00	; 0
+     21c:	e1 f7       	brne	.-8      	; 0x216 <main+0x11c>
+     21e:	00 c0       	rjmp	.+0      	; 0x220 <main+0x126>
+     220:	00 00       	nop
+			_delay_ms(3000);
+			
+			
+			PORTA=0x00; //door open
+     222:	1b ba       	out	0x1b, r1	; 27
+     224:	8f ef       	ldi	r24, 0xFF	; 255
+     226:	94 e3       	ldi	r25, 0x34	; 52
+     228:	ac e0       	ldi	r26, 0x0C	; 12
+     22a:	81 50       	subi	r24, 0x01	; 1
+     22c:	90 40       	sbci	r25, 0x00	; 0
+     22e:	a0 40       	sbci	r26, 0x00	; 0
+     230:	e1 f7       	brne	.-8      	; 0x22a <main+0x130>
+     232:	00 c0       	rjmp	.+0      	; 0x234 <main+0x13a>
+     234:	00 00       	nop
+			_delay_ms(4000);   //door open for 3sec
+			
+									PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     236:	ab 98       	cbi	0x15, 3	; 21
+     238:	8f ed       	ldi	r24, 0xDF	; 223
+     23a:	93 e9       	ldi	r25, 0x93	; 147
+     23c:	a4 e0       	ldi	r26, 0x04	; 4
+     23e:	81 50       	subi	r24, 0x01	; 1
+     240:	90 40       	sbci	r25, 0x00	; 0
+     242:	a0 40       	sbci	r26, 0x00	; 0
+     244:	e1 f7       	brne	.-8      	; 0x23e <main+0x144>
+     246:	00 c0       	rjmp	.+0      	; 0x248 <main+0x14e>
+     248:	00 00       	nop
+									_delay_ms(1500);
+									PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     24a:	ab 9a       	sbi	0x15, 3	; 21
+									
+			
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     24c:	80 e8       	ldi	r24, 0x80	; 128
+     24e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("  Door is Close    ");
+     252:	c1 01       	movw	r24, r2
+     254:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     258:	80 ec       	ldi	r24, 0xC0	; 192
+     25a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     25e:	ce 01       	movw	r24, r28
+     260:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		
+
+		PORTA|=	(1<<4);  //Port A pin 4 is high
+     264:	dc 9a       	sbi	0x1b, 4	; 27
+		PORTA&=	~(1<<5);  //Port A pin 5 is low
+     266:	dd 98       	cbi	0x1b, 5	; 27
+		PORTA&=	~(1<<6);  //Port A pin 6 is low
+     268:	de 98       	cbi	0x1b, 6	; 27
+		PORTA|=	(1<<7);  //Port A pin 7 is high
+     26a:	df 9a       	sbi	0x1b, 7	; 27
+     26c:	8f eb       	ldi	r24, 0xBF	; 191
+     26e:	97 e2       	ldi	r25, 0x27	; 39
+     270:	a9 e0       	ldi	r26, 0x09	; 9
+     272:	81 50       	subi	r24, 0x01	; 1
+     274:	90 40       	sbci	r25, 0x00	; 0
+     276:	a0 40       	sbci	r26, 0x00	; 0
+     278:	e1 f7       	brne	.-8      	; 0x272 <main+0x178>
+     27a:	00 c0       	rjmp	.+0      	; 0x27c <main+0x182>
+     27c:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;          //door close
+     27e:	1b ba       	out	0x1b, r1	; 27
+     280:	8f e7       	ldi	r24, 0x7F	; 127
+     282:	9a e1       	ldi	r25, 0x1A	; 26
+     284:	a6 e0       	ldi	r26, 0x06	; 6
+     286:	81 50       	subi	r24, 0x01	; 1
+     288:	90 40       	sbci	r25, 0x00	; 0
+     28a:	a0 40       	sbci	r26, 0x00	; 0
+     28c:	e1 f7       	brne	.-8      	; 0x286 <main+0x18c>
+     28e:	00 c0       	rjmp	.+0      	; 0x290 <main+0x196>
+     290:	00 00       	nop
+	_delay_ms(2000);
+	
+	lcd_cmd(0x01);    //lcd clear
+     292:	81 e0       	ldi	r24, 0x01	; 1
+     294:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	
+	/************************************************************************/
+	/*                ROHINI West metro Station                             */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     298:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     29a:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     29c:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     29e:	db 98       	cbi	0x1b, 3	; 27
+     2a0:	8f e7       	ldi	r24, 0x7F	; 127
+     2a2:	9a e1       	ldi	r25, 0x1A	; 26
+     2a4:	a6 e0       	ldi	r26, 0x06	; 6
+     2a6:	81 50       	subi	r24, 0x01	; 1
+     2a8:	90 40       	sbci	r25, 0x00	; 0
+     2aa:	a0 40       	sbci	r26, 0x00	; 0
+     2ac:	e1 f7       	brne	.-8      	; 0x2a6 <main+0x1ac>
+     2ae:	00 c0       	rjmp	.+0      	; 0x2b0 <main+0x1b6>
+     2b0:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     2b2:	80 e8       	ldi	r24, 0x80	; 128
+     2b4:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     2b8:	c7 01       	movw	r24, r14
+     2ba:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     2be:	80 ec       	ldi	r24, 0xC0	; 192
+     2c0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("   Rohini West   ");
+     2c4:	86 ef       	ldi	r24, 0xF6	; 246
+     2c6:	90 e0       	ldi	r25, 0x00	; 0
+     2c8:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     2cc:	8f ef       	ldi	r24, 0xFF	; 255
+     2ce:	99 e6       	ldi	r25, 0x69	; 105
+     2d0:	a8 e1       	ldi	r26, 0x18	; 24
+     2d2:	81 50       	subi	r24, 0x01	; 1
+     2d4:	90 40       	sbci	r25, 0x00	; 0
+     2d6:	a0 40       	sbci	r26, 0x00	; 0
+     2d8:	e1 f7       	brne	.-8      	; 0x2d2 <main+0x1d8>
+     2da:	00 c0       	rjmp	.+0      	; 0x2dc <main+0x1e2>
+     2dc:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     2de:	81 e0       	ldi	r24, 0x01	; 1
+     2e0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     2e4:	1b ba       	out	0x1b, r1	; 27
+     2e6:	8f e7       	ldi	r24, 0x7F	; 127
+     2e8:	9a e1       	ldi	r25, 0x1A	; 26
+     2ea:	a6 e0       	ldi	r26, 0x06	; 6
+     2ec:	81 50       	subi	r24, 0x01	; 1
+     2ee:	90 40       	sbci	r25, 0x00	; 0
+     2f0:	a0 40       	sbci	r26, 0x00	; 0
+     2f2:	e1 f7       	brne	.-8      	; 0x2ec <main+0x1f2>
+     2f4:	00 c0       	rjmp	.+0      	; 0x2f6 <main+0x1fc>
+     2f6:	00 00       	nop
+_delay_ms(2000);
+
+PORTB&=~(1<<1);  // for led
+     2f8:	c1 98       	cbi	0x18, 1	; 24
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     2fa:	80 e8       	ldi	r24, 0x80	; 128
+     2fc:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("   Rohini West     ");
+     300:	88 e0       	ldi	r24, 0x08	; 8
+     302:	91 e0       	ldi	r25, 0x01	; 1
+     304:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     308:	80 ec       	ldi	r24, 0xC0	; 192
+     30a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     30e:	c6 01       	movw	r24, r12
+     310:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     314:	8f eb       	ldi	r24, 0xBF	; 191
+     316:	97 e2       	ldi	r25, 0x27	; 39
+     318:	a9 e0       	ldi	r26, 0x09	; 9
+     31a:	81 50       	subi	r24, 0x01	; 1
+     31c:	90 40       	sbci	r25, 0x00	; 0
+     31e:	a0 40       	sbci	r26, 0x00	; 0
+     320:	e1 f7       	brne	.-8      	; 0x31a <main+0x220>
+     322:	00 c0       	rjmp	.+0      	; 0x324 <main+0x22a>
+     324:	00 00       	nop
+	_delay_ms(3000);
+	
+							PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     326:	ab 98       	cbi	0x15, 3	; 21
+     328:	8f ed       	ldi	r24, 0xDF	; 223
+     32a:	93 e9       	ldi	r25, 0x93	; 147
+     32c:	a4 e0       	ldi	r26, 0x04	; 4
+     32e:	81 50       	subi	r24, 0x01	; 1
+     330:	90 40       	sbci	r25, 0x00	; 0
+     332:	a0 40       	sbci	r26, 0x00	; 0
+     334:	e1 f7       	brne	.-8      	; 0x32e <main+0x234>
+     336:	00 c0       	rjmp	.+0      	; 0x338 <main+0x23e>
+     338:	00 00       	nop
+							_delay_ms(1500);
+							PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     33a:	ab 9a       	sbi	0x15, 3	; 21
+							
+	
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     33c:	80 e8       	ldi	r24, 0x80	; 128
+     33e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     342:	c8 01       	movw	r24, r16
+     344:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     348:	80 ec       	ldi	r24, 0xC0	; 192
+     34a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     34e:	ce 01       	movw	r24, r28
+     350:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     354:	8f e7       	ldi	r24, 0x7F	; 127
+     356:	9a e1       	ldi	r25, 0x1A	; 26
+     358:	a6 e0       	ldi	r26, 0x06	; 6
+     35a:	81 50       	subi	r24, 0x01	; 1
+     35c:	90 40       	sbci	r25, 0x00	; 0
+     35e:	a0 40       	sbci	r26, 0x00	; 0
+     360:	e1 f7       	brne	.-8      	; 0x35a <main+0x260>
+     362:	00 c0       	rjmp	.+0      	; 0x364 <main+0x26a>
+     364:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     366:	8b b3       	in	r24, 0x1b	; 27
+     368:	80 66       	ori	r24, 0x60	; 96
+     36a:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     36c:	dc 98       	cbi	0x1b, 4	; 27
+     36e:	8f eb       	ldi	r24, 0xBF	; 191
+     370:	97 e2       	ldi	r25, 0x27	; 39
+     372:	a9 e0       	ldi	r26, 0x09	; 9
+     374:	81 50       	subi	r24, 0x01	; 1
+     376:	90 40       	sbci	r25, 0x00	; 0
+     378:	a0 40       	sbci	r26, 0x00	; 0
+     37a:	e1 f7       	brne	.-8      	; 0x374 <main+0x27a>
+     37c:	00 c0       	rjmp	.+0      	; 0x37e <main+0x284>
+     37e:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     380:	1b ba       	out	0x1b, r1	; 27
+     382:	8f ef       	ldi	r24, 0xFF	; 255
+     384:	94 e3       	ldi	r25, 0x34	; 52
+     386:	ac e0       	ldi	r26, 0x0C	; 12
+     388:	81 50       	subi	r24, 0x01	; 1
+     38a:	90 40       	sbci	r25, 0x00	; 0
+     38c:	a0 40       	sbci	r26, 0x00	; 0
+     38e:	e1 f7       	brne	.-8      	; 0x388 <main+0x28e>
+     390:	00 c0       	rjmp	.+0      	; 0x392 <main+0x298>
+     392:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+								PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     394:	ab 98       	cbi	0x15, 3	; 21
+     396:	8f ed       	ldi	r24, 0xDF	; 223
+     398:	93 e9       	ldi	r25, 0x93	; 147
+     39a:	a4 e0       	ldi	r26, 0x04	; 4
+     39c:	81 50       	subi	r24, 0x01	; 1
+     39e:	90 40       	sbci	r25, 0x00	; 0
+     3a0:	a0 40       	sbci	r26, 0x00	; 0
+     3a2:	e1 f7       	brne	.-8      	; 0x39c <main+0x2a2>
+     3a4:	00 c0       	rjmp	.+0      	; 0x3a6 <main+0x2ac>
+     3a6:	00 00       	nop
+								_delay_ms(1500);
+								PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     3a8:	ab 9a       	sbi	0x15, 3	; 21
+								
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     3aa:	80 e8       	ldi	r24, 0x80	; 128
+     3ac:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     3b0:	c5 01       	movw	r24, r10
+     3b2:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     3b6:	80 ec       	ldi	r24, 0xC0	; 192
+     3b8:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     3bc:	ce 01       	movw	r24, r28
+     3be:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     3c2:	8b b3       	in	r24, 0x1b	; 27
+     3c4:	80 69       	ori	r24, 0x90	; 144
+     3c6:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     3c8:	8b b3       	in	r24, 0x1b	; 27
+     3ca:	8f 79       	andi	r24, 0x9F	; 159
+     3cc:	8b bb       	out	0x1b, r24	; 27
+     3ce:	8f eb       	ldi	r24, 0xBF	; 191
+     3d0:	97 e2       	ldi	r25, 0x27	; 39
+     3d2:	a9 e0       	ldi	r26, 0x09	; 9
+     3d4:	81 50       	subi	r24, 0x01	; 1
+     3d6:	90 40       	sbci	r25, 0x00	; 0
+     3d8:	a0 40       	sbci	r26, 0x00	; 0
+     3da:	e1 f7       	brne	.-8      	; 0x3d4 <main+0x2da>
+     3dc:	00 c0       	rjmp	.+0      	; 0x3de <main+0x2e4>
+     3de:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;          // door close
+     3e0:	1b ba       	out	0x1b, r1	; 27
+     3e2:	8f e3       	ldi	r24, 0x3F	; 63
+     3e4:	9d e0       	ldi	r25, 0x0D	; 13
+     3e6:	a3 e0       	ldi	r26, 0x03	; 3
+     3e8:	81 50       	subi	r24, 0x01	; 1
+     3ea:	90 40       	sbci	r25, 0x00	; 0
+     3ec:	a0 40       	sbci	r26, 0x00	; 0
+     3ee:	e1 f7       	brne	.-8      	; 0x3e8 <main+0x2ee>
+     3f0:	00 c0       	rjmp	.+0      	; 0x3f2 <main+0x2f8>
+     3f2:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     3f4:	81 e0       	ldi	r24, 0x01	; 1
+     3f6:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+	/************************************************************************/
+	/*                ROHINI East metro Station                             */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     3fa:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     3fc:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     3fe:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     400:	db 98       	cbi	0x1b, 3	; 27
+     402:	8f e7       	ldi	r24, 0x7F	; 127
+     404:	9a e1       	ldi	r25, 0x1A	; 26
+     406:	a6 e0       	ldi	r26, 0x06	; 6
+     408:	81 50       	subi	r24, 0x01	; 1
+     40a:	90 40       	sbci	r25, 0x00	; 0
+     40c:	a0 40       	sbci	r26, 0x00	; 0
+     40e:	e1 f7       	brne	.-8      	; 0x408 <main+0x30e>
+     410:	00 c0       	rjmp	.+0      	; 0x412 <main+0x318>
+     412:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     414:	80 e8       	ldi	r24, 0x80	; 128
+     416:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     41a:	c7 01       	movw	r24, r14
+     41c:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     420:	80 ec       	ldi	r24, 0xC0	; 192
+     422:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("   Rohini East   ");
+     426:	85 e4       	ldi	r24, 0x45	; 69
+     428:	91 e0       	ldi	r25, 0x01	; 1
+     42a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     42e:	8f ef       	ldi	r24, 0xFF	; 255
+     430:	99 e6       	ldi	r25, 0x69	; 105
+     432:	a8 e1       	ldi	r26, 0x18	; 24
+     434:	81 50       	subi	r24, 0x01	; 1
+     436:	90 40       	sbci	r25, 0x00	; 0
+     438:	a0 40       	sbci	r26, 0x00	; 0
+     43a:	e1 f7       	brne	.-8      	; 0x434 <main+0x33a>
+     43c:	00 c0       	rjmp	.+0      	; 0x43e <main+0x344>
+     43e:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     440:	81 e0       	ldi	r24, 0x01	; 1
+     442:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     446:	1b ba       	out	0x1b, r1	; 27
+     448:	8f e7       	ldi	r24, 0x7F	; 127
+     44a:	9a e1       	ldi	r25, 0x1A	; 26
+     44c:	a6 e0       	ldi	r26, 0x06	; 6
+     44e:	81 50       	subi	r24, 0x01	; 1
+     450:	90 40       	sbci	r25, 0x00	; 0
+     452:	a0 40       	sbci	r26, 0x00	; 0
+     454:	e1 f7       	brne	.-8      	; 0x44e <main+0x354>
+     456:	00 c0       	rjmp	.+0      	; 0x458 <main+0x35e>
+     458:	00 00       	nop
+_delay_ms(2000);
+
+PORTB&=~(1<<2);  // for led
+     45a:	c2 98       	cbi	0x18, 2	; 24
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     45c:	80 e8       	ldi	r24, 0x80	; 128
+     45e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("   Rohini East     ");
+     462:	87 e5       	ldi	r24, 0x57	; 87
+     464:	91 e0       	ldi	r25, 0x01	; 1
+     466:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     46a:	80 ec       	ldi	r24, 0xC0	; 192
+     46c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     470:	c6 01       	movw	r24, r12
+     472:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     476:	8f eb       	ldi	r24, 0xBF	; 191
+     478:	97 e2       	ldi	r25, 0x27	; 39
+     47a:	a9 e0       	ldi	r26, 0x09	; 9
+     47c:	81 50       	subi	r24, 0x01	; 1
+     47e:	90 40       	sbci	r25, 0x00	; 0
+     480:	a0 40       	sbci	r26, 0x00	; 0
+     482:	e1 f7       	brne	.-8      	; 0x47c <__stack+0x1d>
+     484:	00 c0       	rjmp	.+0      	; 0x486 <__stack+0x27>
+     486:	00 00       	nop
+	_delay_ms(3000);
+	
+							PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     488:	ab 98       	cbi	0x15, 3	; 21
+     48a:	8f ed       	ldi	r24, 0xDF	; 223
+     48c:	93 e9       	ldi	r25, 0x93	; 147
+     48e:	a4 e0       	ldi	r26, 0x04	; 4
+     490:	81 50       	subi	r24, 0x01	; 1
+     492:	90 40       	sbci	r25, 0x00	; 0
+     494:	a0 40       	sbci	r26, 0x00	; 0
+     496:	e1 f7       	brne	.-8      	; 0x490 <__stack+0x31>
+     498:	00 c0       	rjmp	.+0      	; 0x49a <__stack+0x3b>
+     49a:	00 00       	nop
+							_delay_ms(1500);
+							PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     49c:	ab 9a       	sbi	0x15, 3	; 21
+							
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     49e:	80 e8       	ldi	r24, 0x80	; 128
+     4a0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     4a4:	c8 01       	movw	r24, r16
+     4a6:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     4aa:	80 ec       	ldi	r24, 0xC0	; 192
+     4ac:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     4b0:	ce 01       	movw	r24, r28
+     4b2:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     4b6:	8f e7       	ldi	r24, 0x7F	; 127
+     4b8:	9a e1       	ldi	r25, 0x1A	; 26
+     4ba:	a6 e0       	ldi	r26, 0x06	; 6
+     4bc:	81 50       	subi	r24, 0x01	; 1
+     4be:	90 40       	sbci	r25, 0x00	; 0
+     4c0:	a0 40       	sbci	r26, 0x00	; 0
+     4c2:	e1 f7       	brne	.-8      	; 0x4bc <__stack+0x5d>
+     4c4:	00 c0       	rjmp	.+0      	; 0x4c6 <__stack+0x67>
+     4c6:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     4c8:	8b b3       	in	r24, 0x1b	; 27
+     4ca:	80 66       	ori	r24, 0x60	; 96
+     4cc:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     4ce:	dc 98       	cbi	0x1b, 4	; 27
+     4d0:	8f eb       	ldi	r24, 0xBF	; 191
+     4d2:	97 e2       	ldi	r25, 0x27	; 39
+     4d4:	a9 e0       	ldi	r26, 0x09	; 9
+     4d6:	81 50       	subi	r24, 0x01	; 1
+     4d8:	90 40       	sbci	r25, 0x00	; 0
+     4da:	a0 40       	sbci	r26, 0x00	; 0
+     4dc:	e1 f7       	brne	.-8      	; 0x4d6 <__stack+0x77>
+     4de:	00 c0       	rjmp	.+0      	; 0x4e0 <__stack+0x81>
+     4e0:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     4e2:	1b ba       	out	0x1b, r1	; 27
+     4e4:	8f ef       	ldi	r24, 0xFF	; 255
+     4e6:	94 e3       	ldi	r25, 0x34	; 52
+     4e8:	ac e0       	ldi	r26, 0x0C	; 12
+     4ea:	81 50       	subi	r24, 0x01	; 1
+     4ec:	90 40       	sbci	r25, 0x00	; 0
+     4ee:	a0 40       	sbci	r26, 0x00	; 0
+     4f0:	e1 f7       	brne	.-8      	; 0x4ea <__stack+0x8b>
+     4f2:	00 c0       	rjmp	.+0      	; 0x4f4 <__stack+0x95>
+     4f4:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+								PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     4f6:	ab 98       	cbi	0x15, 3	; 21
+     4f8:	8f ed       	ldi	r24, 0xDF	; 223
+     4fa:	93 e9       	ldi	r25, 0x93	; 147
+     4fc:	a4 e0       	ldi	r26, 0x04	; 4
+     4fe:	81 50       	subi	r24, 0x01	; 1
+     500:	90 40       	sbci	r25, 0x00	; 0
+     502:	a0 40       	sbci	r26, 0x00	; 0
+     504:	e1 f7       	brne	.-8      	; 0x4fe <__stack+0x9f>
+     506:	00 c0       	rjmp	.+0      	; 0x508 <__stack+0xa9>
+     508:	00 00       	nop
+								_delay_ms(1500);
+								PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     50a:	ab 9a       	sbi	0x15, 3	; 21
+								
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     50c:	80 e8       	ldi	r24, 0x80	; 128
+     50e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     512:	c5 01       	movw	r24, r10
+     514:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     518:	80 ec       	ldi	r24, 0xC0	; 192
+     51a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     51e:	ce 01       	movw	r24, r28
+     520:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     524:	8b b3       	in	r24, 0x1b	; 27
+     526:	80 69       	ori	r24, 0x90	; 144
+     528:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     52a:	8b b3       	in	r24, 0x1b	; 27
+     52c:	8f 79       	andi	r24, 0x9F	; 159
+     52e:	8b bb       	out	0x1b, r24	; 27
+     530:	8f eb       	ldi	r24, 0xBF	; 191
+     532:	97 e2       	ldi	r25, 0x27	; 39
+     534:	a9 e0       	ldi	r26, 0x09	; 9
+     536:	81 50       	subi	r24, 0x01	; 1
+     538:	90 40       	sbci	r25, 0x00	; 0
+     53a:	a0 40       	sbci	r26, 0x00	; 0
+     53c:	e1 f7       	brne	.-8      	; 0x536 <__stack+0xd7>
+     53e:	00 c0       	rjmp	.+0      	; 0x540 <__stack+0xe1>
+     540:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+     542:	1b ba       	out	0x1b, r1	; 27
+     544:	8f e3       	ldi	r24, 0x3F	; 63
+     546:	9d e0       	ldi	r25, 0x0D	; 13
+     548:	a3 e0       	ldi	r26, 0x03	; 3
+     54a:	81 50       	subi	r24, 0x01	; 1
+     54c:	90 40       	sbci	r25, 0x00	; 0
+     54e:	a0 40       	sbci	r26, 0x00	; 0
+     550:	e1 f7       	brne	.-8      	; 0x54a <__stack+0xeb>
+     552:	00 c0       	rjmp	.+0      	; 0x554 <__stack+0xf5>
+     554:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     556:	81 e0       	ldi	r24, 0x01	; 1
+     558:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+   /************************************************************************/
+	/*                Pitampura metro Station                             */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     55c:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     55e:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     560:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     562:	db 98       	cbi	0x1b, 3	; 27
+     564:	8f e7       	ldi	r24, 0x7F	; 127
+     566:	9a e1       	ldi	r25, 0x1A	; 26
+     568:	a6 e0       	ldi	r26, 0x06	; 6
+     56a:	81 50       	subi	r24, 0x01	; 1
+     56c:	90 40       	sbci	r25, 0x00	; 0
+     56e:	a0 40       	sbci	r26, 0x00	; 0
+     570:	e1 f7       	brne	.-8      	; 0x56a <__stack+0x10b>
+     572:	00 c0       	rjmp	.+0      	; 0x574 <__stack+0x115>
+     574:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     576:	80 e8       	ldi	r24, 0x80	; 128
+     578:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     57c:	c7 01       	movw	r24, r14
+     57e:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     582:	80 ec       	ldi	r24, 0xC0	; 192
+     584:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("    Pitampura    ");
+     588:	8b e6       	ldi	r24, 0x6B	; 107
+     58a:	91 e0       	ldi	r25, 0x01	; 1
+     58c:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     590:	8f ef       	ldi	r24, 0xFF	; 255
+     592:	99 e6       	ldi	r25, 0x69	; 105
+     594:	a8 e1       	ldi	r26, 0x18	; 24
+     596:	81 50       	subi	r24, 0x01	; 1
+     598:	90 40       	sbci	r25, 0x00	; 0
+     59a:	a0 40       	sbci	r26, 0x00	; 0
+     59c:	e1 f7       	brne	.-8      	; 0x596 <__stack+0x137>
+     59e:	00 c0       	rjmp	.+0      	; 0x5a0 <__stack+0x141>
+     5a0:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     5a2:	81 e0       	ldi	r24, 0x01	; 1
+     5a4:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     5a8:	1b ba       	out	0x1b, r1	; 27
+     5aa:	8f e7       	ldi	r24, 0x7F	; 127
+     5ac:	9a e1       	ldi	r25, 0x1A	; 26
+     5ae:	a6 e0       	ldi	r26, 0x06	; 6
+     5b0:	81 50       	subi	r24, 0x01	; 1
+     5b2:	90 40       	sbci	r25, 0x00	; 0
+     5b4:	a0 40       	sbci	r26, 0x00	; 0
+     5b6:	e1 f7       	brne	.-8      	; 0x5b0 <__stack+0x151>
+     5b8:	00 c0       	rjmp	.+0      	; 0x5ba <__stack+0x15b>
+     5ba:	00 00       	nop
+_delay_ms(2000);
+
+PORTB&=~(1<<3);  // for led
+     5bc:	c3 98       	cbi	0x18, 3	; 24
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     5be:	80 e8       	ldi	r24, 0x80	; 128
+     5c0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("    Pitampura      ");
+     5c4:	8d e7       	ldi	r24, 0x7D	; 125
+     5c6:	91 e0       	ldi	r25, 0x01	; 1
+     5c8:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     5cc:	80 ec       	ldi	r24, 0xC0	; 192
+     5ce:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     5d2:	c6 01       	movw	r24, r12
+     5d4:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     5d8:	8f eb       	ldi	r24, 0xBF	; 191
+     5da:	97 e2       	ldi	r25, 0x27	; 39
+     5dc:	a9 e0       	ldi	r26, 0x09	; 9
+     5de:	81 50       	subi	r24, 0x01	; 1
+     5e0:	90 40       	sbci	r25, 0x00	; 0
+     5e2:	a0 40       	sbci	r26, 0x00	; 0
+     5e4:	e1 f7       	brne	.-8      	; 0x5de <__stack+0x17f>
+     5e6:	00 c0       	rjmp	.+0      	; 0x5e8 <__stack+0x189>
+     5e8:	00 00       	nop
+	_delay_ms(3000);
+	
+							PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     5ea:	ab 98       	cbi	0x15, 3	; 21
+     5ec:	8f ed       	ldi	r24, 0xDF	; 223
+     5ee:	93 e9       	ldi	r25, 0x93	; 147
+     5f0:	a4 e0       	ldi	r26, 0x04	; 4
+     5f2:	81 50       	subi	r24, 0x01	; 1
+     5f4:	90 40       	sbci	r25, 0x00	; 0
+     5f6:	a0 40       	sbci	r26, 0x00	; 0
+     5f8:	e1 f7       	brne	.-8      	; 0x5f2 <__stack+0x193>
+     5fa:	00 c0       	rjmp	.+0      	; 0x5fc <__stack+0x19d>
+     5fc:	00 00       	nop
+							_delay_ms(1500);
+							PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     5fe:	ab 9a       	sbi	0x15, 3	; 21
+							
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     600:	80 e8       	ldi	r24, 0x80	; 128
+     602:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     606:	c8 01       	movw	r24, r16
+     608:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     60c:	80 ec       	ldi	r24, 0xC0	; 192
+     60e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     612:	ce 01       	movw	r24, r28
+     614:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     618:	8f e7       	ldi	r24, 0x7F	; 127
+     61a:	9a e1       	ldi	r25, 0x1A	; 26
+     61c:	a6 e0       	ldi	r26, 0x06	; 6
+     61e:	81 50       	subi	r24, 0x01	; 1
+     620:	90 40       	sbci	r25, 0x00	; 0
+     622:	a0 40       	sbci	r26, 0x00	; 0
+     624:	e1 f7       	brne	.-8      	; 0x61e <__stack+0x1bf>
+     626:	00 c0       	rjmp	.+0      	; 0x628 <__stack+0x1c9>
+     628:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     62a:	8b b3       	in	r24, 0x1b	; 27
+     62c:	80 66       	ori	r24, 0x60	; 96
+     62e:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     630:	dc 98       	cbi	0x1b, 4	; 27
+     632:	8f eb       	ldi	r24, 0xBF	; 191
+     634:	97 e2       	ldi	r25, 0x27	; 39
+     636:	a9 e0       	ldi	r26, 0x09	; 9
+     638:	81 50       	subi	r24, 0x01	; 1
+     63a:	90 40       	sbci	r25, 0x00	; 0
+     63c:	a0 40       	sbci	r26, 0x00	; 0
+     63e:	e1 f7       	brne	.-8      	; 0x638 <__stack+0x1d9>
+     640:	00 c0       	rjmp	.+0      	; 0x642 <__stack+0x1e3>
+     642:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     644:	1b ba       	out	0x1b, r1	; 27
+     646:	8f ef       	ldi	r24, 0xFF	; 255
+     648:	94 e3       	ldi	r25, 0x34	; 52
+     64a:	ac e0       	ldi	r26, 0x0C	; 12
+     64c:	81 50       	subi	r24, 0x01	; 1
+     64e:	90 40       	sbci	r25, 0x00	; 0
+     650:	a0 40       	sbci	r26, 0x00	; 0
+     652:	e1 f7       	brne	.-8      	; 0x64c <__stack+0x1ed>
+     654:	00 c0       	rjmp	.+0      	; 0x656 <__stack+0x1f7>
+     656:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+								PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     658:	ab 98       	cbi	0x15, 3	; 21
+     65a:	8f ed       	ldi	r24, 0xDF	; 223
+     65c:	93 e9       	ldi	r25, 0x93	; 147
+     65e:	a4 e0       	ldi	r26, 0x04	; 4
+     660:	81 50       	subi	r24, 0x01	; 1
+     662:	90 40       	sbci	r25, 0x00	; 0
+     664:	a0 40       	sbci	r26, 0x00	; 0
+     666:	e1 f7       	brne	.-8      	; 0x660 <__stack+0x201>
+     668:	00 c0       	rjmp	.+0      	; 0x66a <__stack+0x20b>
+     66a:	00 00       	nop
+								_delay_ms(1500);
+								PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     66c:	ab 9a       	sbi	0x15, 3	; 21
+							
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     66e:	80 e8       	ldi	r24, 0x80	; 128
+     670:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     674:	c5 01       	movw	r24, r10
+     676:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     67a:	80 ec       	ldi	r24, 0xC0	; 192
+     67c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     680:	ce 01       	movw	r24, r28
+     682:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     686:	8b b3       	in	r24, 0x1b	; 27
+     688:	80 69       	ori	r24, 0x90	; 144
+     68a:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     68c:	8b b3       	in	r24, 0x1b	; 27
+     68e:	8f 79       	andi	r24, 0x9F	; 159
+     690:	8b bb       	out	0x1b, r24	; 27
+     692:	8f eb       	ldi	r24, 0xBF	; 191
+     694:	97 e2       	ldi	r25, 0x27	; 39
+     696:	a9 e0       	ldi	r26, 0x09	; 9
+     698:	81 50       	subi	r24, 0x01	; 1
+     69a:	90 40       	sbci	r25, 0x00	; 0
+     69c:	a0 40       	sbci	r26, 0x00	; 0
+     69e:	e1 f7       	brne	.-8      	; 0x698 <__stack+0x239>
+     6a0:	00 c0       	rjmp	.+0      	; 0x6a2 <__stack+0x243>
+     6a2:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+     6a4:	1b ba       	out	0x1b, r1	; 27
+     6a6:	8f e3       	ldi	r24, 0x3F	; 63
+     6a8:	9d e0       	ldi	r25, 0x0D	; 13
+     6aa:	a3 e0       	ldi	r26, 0x03	; 3
+     6ac:	81 50       	subi	r24, 0x01	; 1
+     6ae:	90 40       	sbci	r25, 0x00	; 0
+     6b0:	a0 40       	sbci	r26, 0x00	; 0
+     6b2:	e1 f7       	brne	.-8      	; 0x6ac <__stack+0x24d>
+     6b4:	00 c0       	rjmp	.+0      	; 0x6b6 <__stack+0x257>
+     6b6:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     6b8:	81 e0       	ldi	r24, 0x01	; 1
+     6ba:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+    /************************************************************************/
+	/*                Kohat Enclave Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     6be:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     6c0:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     6c2:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     6c4:	db 98       	cbi	0x1b, 3	; 27
+     6c6:	8f e7       	ldi	r24, 0x7F	; 127
+     6c8:	9a e1       	ldi	r25, 0x1A	; 26
+     6ca:	a6 e0       	ldi	r26, 0x06	; 6
+     6cc:	81 50       	subi	r24, 0x01	; 1
+     6ce:	90 40       	sbci	r25, 0x00	; 0
+     6d0:	a0 40       	sbci	r26, 0x00	; 0
+     6d2:	e1 f7       	brne	.-8      	; 0x6cc <__stack+0x26d>
+     6d4:	00 c0       	rjmp	.+0      	; 0x6d6 <__stack+0x277>
+     6d6:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     6d8:	80 e8       	ldi	r24, 0x80	; 128
+     6da:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     6de:	c7 01       	movw	r24, r14
+     6e0:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     6e4:	80 ec       	ldi	r24, 0xC0	; 192
+     6e6:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("  Kohat Enclave  ");
+     6ea:	81 e9       	ldi	r24, 0x91	; 145
+     6ec:	91 e0       	ldi	r25, 0x01	; 1
+     6ee:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     6f2:	8f ef       	ldi	r24, 0xFF	; 255
+     6f4:	99 e6       	ldi	r25, 0x69	; 105
+     6f6:	a8 e1       	ldi	r26, 0x18	; 24
+     6f8:	81 50       	subi	r24, 0x01	; 1
+     6fa:	90 40       	sbci	r25, 0x00	; 0
+     6fc:	a0 40       	sbci	r26, 0x00	; 0
+     6fe:	e1 f7       	brne	.-8      	; 0x6f8 <__stack+0x299>
+     700:	00 c0       	rjmp	.+0      	; 0x702 <__stack+0x2a3>
+     702:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     704:	81 e0       	ldi	r24, 0x01	; 1
+     706:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     70a:	1b ba       	out	0x1b, r1	; 27
+     70c:	8f e7       	ldi	r24, 0x7F	; 127
+     70e:	9a e1       	ldi	r25, 0x1A	; 26
+     710:	a6 e0       	ldi	r26, 0x06	; 6
+     712:	81 50       	subi	r24, 0x01	; 1
+     714:	90 40       	sbci	r25, 0x00	; 0
+     716:	a0 40       	sbci	r26, 0x00	; 0
+     718:	e1 f7       	brne	.-8      	; 0x712 <__stack+0x2b3>
+     71a:	00 c0       	rjmp	.+0      	; 0x71c <__stack+0x2bd>
+     71c:	00 00       	nop
+_delay_ms(2000);
+
+PORTB&=~(1<<4);  // for led
+     71e:	c4 98       	cbi	0x18, 4	; 24
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     720:	80 e8       	ldi	r24, 0x80	; 128
+     722:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  Kohat Enclave    ");
+     726:	83 ea       	ldi	r24, 0xA3	; 163
+     728:	91 e0       	ldi	r25, 0x01	; 1
+     72a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     72e:	80 ec       	ldi	r24, 0xC0	; 192
+     730:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     734:	c6 01       	movw	r24, r12
+     736:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     73a:	8f eb       	ldi	r24, 0xBF	; 191
+     73c:	97 e2       	ldi	r25, 0x27	; 39
+     73e:	a9 e0       	ldi	r26, 0x09	; 9
+     740:	81 50       	subi	r24, 0x01	; 1
+     742:	90 40       	sbci	r25, 0x00	; 0
+     744:	a0 40       	sbci	r26, 0x00	; 0
+     746:	e1 f7       	brne	.-8      	; 0x740 <__stack+0x2e1>
+     748:	00 c0       	rjmp	.+0      	; 0x74a <__stack+0x2eb>
+     74a:	00 00       	nop
+	_delay_ms(3000);
+	
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     74c:	ab 98       	cbi	0x15, 3	; 21
+     74e:	8f ed       	ldi	r24, 0xDF	; 223
+     750:	93 e9       	ldi	r25, 0x93	; 147
+     752:	a4 e0       	ldi	r26, 0x04	; 4
+     754:	81 50       	subi	r24, 0x01	; 1
+     756:	90 40       	sbci	r25, 0x00	; 0
+     758:	a0 40       	sbci	r26, 0x00	; 0
+     75a:	e1 f7       	brne	.-8      	; 0x754 <__stack+0x2f5>
+     75c:	00 c0       	rjmp	.+0      	; 0x75e <__stack+0x2ff>
+     75e:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     760:	ab 9a       	sbi	0x15, 3	; 21
+						
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     762:	80 e8       	ldi	r24, 0x80	; 128
+     764:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     768:	c8 01       	movw	r24, r16
+     76a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     76e:	80 ec       	ldi	r24, 0xC0	; 192
+     770:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     774:	ce 01       	movw	r24, r28
+     776:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     77a:	8f e7       	ldi	r24, 0x7F	; 127
+     77c:	9a e1       	ldi	r25, 0x1A	; 26
+     77e:	a6 e0       	ldi	r26, 0x06	; 6
+     780:	81 50       	subi	r24, 0x01	; 1
+     782:	90 40       	sbci	r25, 0x00	; 0
+     784:	a0 40       	sbci	r26, 0x00	; 0
+     786:	e1 f7       	brne	.-8      	; 0x780 <__stack+0x321>
+     788:	00 c0       	rjmp	.+0      	; 0x78a <__stack+0x32b>
+     78a:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     78c:	8b b3       	in	r24, 0x1b	; 27
+     78e:	80 66       	ori	r24, 0x60	; 96
+     790:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     792:	dc 98       	cbi	0x1b, 4	; 27
+     794:	8f eb       	ldi	r24, 0xBF	; 191
+     796:	97 e2       	ldi	r25, 0x27	; 39
+     798:	a9 e0       	ldi	r26, 0x09	; 9
+     79a:	81 50       	subi	r24, 0x01	; 1
+     79c:	90 40       	sbci	r25, 0x00	; 0
+     79e:	a0 40       	sbci	r26, 0x00	; 0
+     7a0:	e1 f7       	brne	.-8      	; 0x79a <__stack+0x33b>
+     7a2:	00 c0       	rjmp	.+0      	; 0x7a4 <__stack+0x345>
+     7a4:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     7a6:	1b ba       	out	0x1b, r1	; 27
+     7a8:	8f ef       	ldi	r24, 0xFF	; 255
+     7aa:	94 e3       	ldi	r25, 0x34	; 52
+     7ac:	ac e0       	ldi	r26, 0x0C	; 12
+     7ae:	81 50       	subi	r24, 0x01	; 1
+     7b0:	90 40       	sbci	r25, 0x00	; 0
+     7b2:	a0 40       	sbci	r26, 0x00	; 0
+     7b4:	e1 f7       	brne	.-8      	; 0x7ae <__stack+0x34f>
+     7b6:	00 c0       	rjmp	.+0      	; 0x7b8 <__stack+0x359>
+     7b8:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     7ba:	ab 98       	cbi	0x15, 3	; 21
+     7bc:	8f ed       	ldi	r24, 0xDF	; 223
+     7be:	93 e9       	ldi	r25, 0x93	; 147
+     7c0:	a4 e0       	ldi	r26, 0x04	; 4
+     7c2:	81 50       	subi	r24, 0x01	; 1
+     7c4:	90 40       	sbci	r25, 0x00	; 0
+     7c6:	a0 40       	sbci	r26, 0x00	; 0
+     7c8:	e1 f7       	brne	.-8      	; 0x7c2 <__stack+0x363>
+     7ca:	00 c0       	rjmp	.+0      	; 0x7cc <__stack+0x36d>
+     7cc:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     7ce:	ab 9a       	sbi	0x15, 3	; 21
+						
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     7d0:	80 e8       	ldi	r24, 0x80	; 128
+     7d2:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     7d6:	c5 01       	movw	r24, r10
+     7d8:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     7dc:	80 ec       	ldi	r24, 0xC0	; 192
+     7de:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     7e2:	ce 01       	movw	r24, r28
+     7e4:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     7e8:	8b b3       	in	r24, 0x1b	; 27
+     7ea:	80 69       	ori	r24, 0x90	; 144
+     7ec:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     7ee:	8b b3       	in	r24, 0x1b	; 27
+     7f0:	8f 79       	andi	r24, 0x9F	; 159
+     7f2:	8b bb       	out	0x1b, r24	; 27
+     7f4:	8f eb       	ldi	r24, 0xBF	; 191
+     7f6:	97 e2       	ldi	r25, 0x27	; 39
+     7f8:	a9 e0       	ldi	r26, 0x09	; 9
+     7fa:	81 50       	subi	r24, 0x01	; 1
+     7fc:	90 40       	sbci	r25, 0x00	; 0
+     7fe:	a0 40       	sbci	r26, 0x00	; 0
+     800:	e1 f7       	brne	.-8      	; 0x7fa <__stack+0x39b>
+     802:	00 c0       	rjmp	.+0      	; 0x804 <__stack+0x3a5>
+     804:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+     806:	1b ba       	out	0x1b, r1	; 27
+     808:	8f e3       	ldi	r24, 0x3F	; 63
+     80a:	9d e0       	ldi	r25, 0x0D	; 13
+     80c:	a3 e0       	ldi	r26, 0x03	; 3
+     80e:	81 50       	subi	r24, 0x01	; 1
+     810:	90 40       	sbci	r25, 0x00	; 0
+     812:	a0 40       	sbci	r26, 0x00	; 0
+     814:	e1 f7       	brne	.-8      	; 0x80e <__stack+0x3af>
+     816:	00 c0       	rjmp	.+0      	; 0x818 <__stack+0x3b9>
+     818:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     81a:	81 e0       	ldi	r24, 0x01	; 1
+     81c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+
+    /************************************************************************/
+	/*                NSP Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     820:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     822:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     824:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     826:	db 98       	cbi	0x1b, 3	; 27
+     828:	8f e7       	ldi	r24, 0x7F	; 127
+     82a:	9a e1       	ldi	r25, 0x1A	; 26
+     82c:	a6 e0       	ldi	r26, 0x06	; 6
+     82e:	81 50       	subi	r24, 0x01	; 1
+     830:	90 40       	sbci	r25, 0x00	; 0
+     832:	a0 40       	sbci	r26, 0x00	; 0
+     834:	e1 f7       	brne	.-8      	; 0x82e <__stack+0x3cf>
+     836:	00 c0       	rjmp	.+0      	; 0x838 <__stack+0x3d9>
+     838:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     83a:	80 e8       	ldi	r24, 0x80	; 128
+     83c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     840:	c7 01       	movw	r24, r14
+     842:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     846:	80 ec       	ldi	r24, 0xC0	; 192
+     848:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("      N.S.P      ");
+     84c:	87 eb       	ldi	r24, 0xB7	; 183
+     84e:	91 e0       	ldi	r25, 0x01	; 1
+     850:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     854:	8f ef       	ldi	r24, 0xFF	; 255
+     856:	99 e6       	ldi	r25, 0x69	; 105
+     858:	a8 e1       	ldi	r26, 0x18	; 24
+     85a:	81 50       	subi	r24, 0x01	; 1
+     85c:	90 40       	sbci	r25, 0x00	; 0
+     85e:	a0 40       	sbci	r26, 0x00	; 0
+     860:	e1 f7       	brne	.-8      	; 0x85a <__stack+0x3fb>
+     862:	00 c0       	rjmp	.+0      	; 0x864 <__stack+0x405>
+     864:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     866:	81 e0       	ldi	r24, 0x01	; 1
+     868:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     86c:	1b ba       	out	0x1b, r1	; 27
+     86e:	8f e7       	ldi	r24, 0x7F	; 127
+     870:	9a e1       	ldi	r25, 0x1A	; 26
+     872:	a6 e0       	ldi	r26, 0x06	; 6
+     874:	81 50       	subi	r24, 0x01	; 1
+     876:	90 40       	sbci	r25, 0x00	; 0
+     878:	a0 40       	sbci	r26, 0x00	; 0
+     87a:	e1 f7       	brne	.-8      	; 0x874 <__stack+0x415>
+     87c:	00 c0       	rjmp	.+0      	; 0x87e <__stack+0x41f>
+     87e:	00 00       	nop
+_delay_ms(2000);
+
+PORTB&=~(1<<5);  // for led
+     880:	c5 98       	cbi	0x18, 5	; 24
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     882:	80 e8       	ldi	r24, 0x80	; 128
+     884:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("      N.S.P        ");
+     888:	89 ec       	ldi	r24, 0xC9	; 201
+     88a:	91 e0       	ldi	r25, 0x01	; 1
+     88c:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     890:	80 ec       	ldi	r24, 0xC0	; 192
+     892:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     896:	c6 01       	movw	r24, r12
+     898:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     89c:	8f eb       	ldi	r24, 0xBF	; 191
+     89e:	97 e2       	ldi	r25, 0x27	; 39
+     8a0:	a9 e0       	ldi	r26, 0x09	; 9
+     8a2:	81 50       	subi	r24, 0x01	; 1
+     8a4:	90 40       	sbci	r25, 0x00	; 0
+     8a6:	a0 40       	sbci	r26, 0x00	; 0
+     8a8:	e1 f7       	brne	.-8      	; 0x8a2 <__stack+0x443>
+     8aa:	00 c0       	rjmp	.+0      	; 0x8ac <__stack+0x44d>
+     8ac:	00 00       	nop
+	_delay_ms(3000);
+
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     8ae:	ab 98       	cbi	0x15, 3	; 21
+     8b0:	8f ed       	ldi	r24, 0xDF	; 223
+     8b2:	93 e9       	ldi	r25, 0x93	; 147
+     8b4:	a4 e0       	ldi	r26, 0x04	; 4
+     8b6:	81 50       	subi	r24, 0x01	; 1
+     8b8:	90 40       	sbci	r25, 0x00	; 0
+     8ba:	a0 40       	sbci	r26, 0x00	; 0
+     8bc:	e1 f7       	brne	.-8      	; 0x8b6 <__stack+0x457>
+     8be:	00 c0       	rjmp	.+0      	; 0x8c0 <__stack+0x461>
+     8c0:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     8c2:	ab 9a       	sbi	0x15, 3	; 21
+						
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     8c4:	80 e8       	ldi	r24, 0x80	; 128
+     8c6:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     8ca:	c8 01       	movw	r24, r16
+     8cc:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     8d0:	80 ec       	ldi	r24, 0xC0	; 192
+     8d2:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     8d6:	ce 01       	movw	r24, r28
+     8d8:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     8dc:	8f e7       	ldi	r24, 0x7F	; 127
+     8de:	9a e1       	ldi	r25, 0x1A	; 26
+     8e0:	a6 e0       	ldi	r26, 0x06	; 6
+     8e2:	81 50       	subi	r24, 0x01	; 1
+     8e4:	90 40       	sbci	r25, 0x00	; 0
+     8e6:	a0 40       	sbci	r26, 0x00	; 0
+     8e8:	e1 f7       	brne	.-8      	; 0x8e2 <__stack+0x483>
+     8ea:	00 c0       	rjmp	.+0      	; 0x8ec <__stack+0x48d>
+     8ec:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     8ee:	8b b3       	in	r24, 0x1b	; 27
+     8f0:	80 66       	ori	r24, 0x60	; 96
+     8f2:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     8f4:	dc 98       	cbi	0x1b, 4	; 27
+     8f6:	8f eb       	ldi	r24, 0xBF	; 191
+     8f8:	97 e2       	ldi	r25, 0x27	; 39
+     8fa:	a9 e0       	ldi	r26, 0x09	; 9
+     8fc:	81 50       	subi	r24, 0x01	; 1
+     8fe:	90 40       	sbci	r25, 0x00	; 0
+     900:	a0 40       	sbci	r26, 0x00	; 0
+     902:	e1 f7       	brne	.-8      	; 0x8fc <__stack+0x49d>
+     904:	00 c0       	rjmp	.+0      	; 0x906 <__stack+0x4a7>
+     906:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     908:	1b ba       	out	0x1b, r1	; 27
+     90a:	8f ef       	ldi	r24, 0xFF	; 255
+     90c:	94 e3       	ldi	r25, 0x34	; 52
+     90e:	ac e0       	ldi	r26, 0x0C	; 12
+     910:	81 50       	subi	r24, 0x01	; 1
+     912:	90 40       	sbci	r25, 0x00	; 0
+     914:	a0 40       	sbci	r26, 0x00	; 0
+     916:	e1 f7       	brne	.-8      	; 0x910 <__stack+0x4b1>
+     918:	00 c0       	rjmp	.+0      	; 0x91a <__stack+0x4bb>
+     91a:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     91c:	ab 98       	cbi	0x15, 3	; 21
+     91e:	8f ed       	ldi	r24, 0xDF	; 223
+     920:	93 e9       	ldi	r25, 0x93	; 147
+     922:	a4 e0       	ldi	r26, 0x04	; 4
+     924:	81 50       	subi	r24, 0x01	; 1
+     926:	90 40       	sbci	r25, 0x00	; 0
+     928:	a0 40       	sbci	r26, 0x00	; 0
+     92a:	e1 f7       	brne	.-8      	; 0x924 <__stack+0x4c5>
+     92c:	00 c0       	rjmp	.+0      	; 0x92e <__stack+0x4cf>
+     92e:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     930:	ab 9a       	sbi	0x15, 3	; 21
+						
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     932:	80 e8       	ldi	r24, 0x80	; 128
+     934:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     938:	c5 01       	movw	r24, r10
+     93a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     93e:	80 ec       	ldi	r24, 0xC0	; 192
+     940:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     944:	ce 01       	movw	r24, r28
+     946:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     94a:	8b b3       	in	r24, 0x1b	; 27
+     94c:	80 69       	ori	r24, 0x90	; 144
+     94e:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     950:	8b b3       	in	r24, 0x1b	; 27
+     952:	8f 79       	andi	r24, 0x9F	; 159
+     954:	8b bb       	out	0x1b, r24	; 27
+     956:	8f eb       	ldi	r24, 0xBF	; 191
+     958:	97 e2       	ldi	r25, 0x27	; 39
+     95a:	a9 e0       	ldi	r26, 0x09	; 9
+     95c:	81 50       	subi	r24, 0x01	; 1
+     95e:	90 40       	sbci	r25, 0x00	; 0
+     960:	a0 40       	sbci	r26, 0x00	; 0
+     962:	e1 f7       	brne	.-8      	; 0x95c <__stack+0x4fd>
+     964:	00 c0       	rjmp	.+0      	; 0x966 <__stack+0x507>
+     966:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+     968:	1b ba       	out	0x1b, r1	; 27
+     96a:	8f e3       	ldi	r24, 0x3F	; 63
+     96c:	9d e0       	ldi	r25, 0x0D	; 13
+     96e:	a3 e0       	ldi	r26, 0x03	; 3
+     970:	81 50       	subi	r24, 0x01	; 1
+     972:	90 40       	sbci	r25, 0x00	; 0
+     974:	a0 40       	sbci	r26, 0x00	; 0
+     976:	e1 f7       	brne	.-8      	; 0x970 <__stack+0x511>
+     978:	00 c0       	rjmp	.+0      	; 0x97a <__stack+0x51b>
+     97a:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     97c:	81 e0       	ldi	r24, 0x01	; 1
+     97e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+   /************************************************************************/
+	/*                Keshav Puram Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     982:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     984:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     986:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     988:	db 98       	cbi	0x1b, 3	; 27
+     98a:	8f e7       	ldi	r24, 0x7F	; 127
+     98c:	9a e1       	ldi	r25, 0x1A	; 26
+     98e:	a6 e0       	ldi	r26, 0x06	; 6
+     990:	81 50       	subi	r24, 0x01	; 1
+     992:	90 40       	sbci	r25, 0x00	; 0
+     994:	a0 40       	sbci	r26, 0x00	; 0
+     996:	e1 f7       	brne	.-8      	; 0x990 <__stack+0x531>
+     998:	00 c0       	rjmp	.+0      	; 0x99a <__stack+0x53b>
+     99a:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     99c:	80 e8       	ldi	r24, 0x80	; 128
+     99e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     9a2:	c7 01       	movw	r24, r14
+     9a4:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     9a8:	80 ec       	ldi	r24, 0xC0	; 192
+     9aa:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("  Keshav Puram   ");
+     9ae:	8d ed       	ldi	r24, 0xDD	; 221
+     9b0:	91 e0       	ldi	r25, 0x01	; 1
+     9b2:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     9b6:	8f ef       	ldi	r24, 0xFF	; 255
+     9b8:	99 e6       	ldi	r25, 0x69	; 105
+     9ba:	a8 e1       	ldi	r26, 0x18	; 24
+     9bc:	81 50       	subi	r24, 0x01	; 1
+     9be:	90 40       	sbci	r25, 0x00	; 0
+     9c0:	a0 40       	sbci	r26, 0x00	; 0
+     9c2:	e1 f7       	brne	.-8      	; 0x9bc <__stack+0x55d>
+     9c4:	00 c0       	rjmp	.+0      	; 0x9c6 <__stack+0x567>
+     9c6:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     9c8:	81 e0       	ldi	r24, 0x01	; 1
+     9ca:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     9ce:	1b ba       	out	0x1b, r1	; 27
+     9d0:	8f e7       	ldi	r24, 0x7F	; 127
+     9d2:	9a e1       	ldi	r25, 0x1A	; 26
+     9d4:	a6 e0       	ldi	r26, 0x06	; 6
+     9d6:	81 50       	subi	r24, 0x01	; 1
+     9d8:	90 40       	sbci	r25, 0x00	; 0
+     9da:	a0 40       	sbci	r26, 0x00	; 0
+     9dc:	e1 f7       	brne	.-8      	; 0x9d6 <__stack+0x577>
+     9de:	00 c0       	rjmp	.+0      	; 0x9e0 <__stack+0x581>
+     9e0:	00 00       	nop
+_delay_ms(2000);
+
+PORTB&=~(1<<6);  // for led
+     9e2:	c6 98       	cbi	0x18, 6	; 24
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     9e4:	80 e8       	ldi	r24, 0x80	; 128
+     9e6:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("   Keshav Puram    ");
+     9ea:	8f ee       	ldi	r24, 0xEF	; 239
+     9ec:	91 e0       	ldi	r25, 0x01	; 1
+     9ee:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     9f2:	80 ec       	ldi	r24, 0xC0	; 192
+     9f4:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     9f8:	c6 01       	movw	r24, r12
+     9fa:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     9fe:	8f eb       	ldi	r24, 0xBF	; 191
+     a00:	97 e2       	ldi	r25, 0x27	; 39
+     a02:	a9 e0       	ldi	r26, 0x09	; 9
+     a04:	81 50       	subi	r24, 0x01	; 1
+     a06:	90 40       	sbci	r25, 0x00	; 0
+     a08:	a0 40       	sbci	r26, 0x00	; 0
+     a0a:	e1 f7       	brne	.-8      	; 0xa04 <__stack+0x5a5>
+     a0c:	00 c0       	rjmp	.+0      	; 0xa0e <__stack+0x5af>
+     a0e:	00 00       	nop
+	_delay_ms(3000);
+
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     a10:	ab 98       	cbi	0x15, 3	; 21
+     a12:	8f ed       	ldi	r24, 0xDF	; 223
+     a14:	93 e9       	ldi	r25, 0x93	; 147
+     a16:	a4 e0       	ldi	r26, 0x04	; 4
+     a18:	81 50       	subi	r24, 0x01	; 1
+     a1a:	90 40       	sbci	r25, 0x00	; 0
+     a1c:	a0 40       	sbci	r26, 0x00	; 0
+     a1e:	e1 f7       	brne	.-8      	; 0xa18 <__stack+0x5b9>
+     a20:	00 c0       	rjmp	.+0      	; 0xa22 <__stack+0x5c3>
+     a22:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     a24:	ab 9a       	sbi	0x15, 3	; 21
+						
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     a26:	80 e8       	ldi	r24, 0x80	; 128
+     a28:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     a2c:	c8 01       	movw	r24, r16
+     a2e:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     a32:	80 ec       	ldi	r24, 0xC0	; 192
+     a34:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     a38:	ce 01       	movw	r24, r28
+     a3a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     a3e:	8f e7       	ldi	r24, 0x7F	; 127
+     a40:	9a e1       	ldi	r25, 0x1A	; 26
+     a42:	a6 e0       	ldi	r26, 0x06	; 6
+     a44:	81 50       	subi	r24, 0x01	; 1
+     a46:	90 40       	sbci	r25, 0x00	; 0
+     a48:	a0 40       	sbci	r26, 0x00	; 0
+     a4a:	e1 f7       	brne	.-8      	; 0xa44 <__stack+0x5e5>
+     a4c:	00 c0       	rjmp	.+0      	; 0xa4e <__stack+0x5ef>
+     a4e:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     a50:	8b b3       	in	r24, 0x1b	; 27
+     a52:	80 66       	ori	r24, 0x60	; 96
+     a54:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     a56:	dc 98       	cbi	0x1b, 4	; 27
+     a58:	8f eb       	ldi	r24, 0xBF	; 191
+     a5a:	97 e2       	ldi	r25, 0x27	; 39
+     a5c:	a9 e0       	ldi	r26, 0x09	; 9
+     a5e:	81 50       	subi	r24, 0x01	; 1
+     a60:	90 40       	sbci	r25, 0x00	; 0
+     a62:	a0 40       	sbci	r26, 0x00	; 0
+     a64:	e1 f7       	brne	.-8      	; 0xa5e <__stack+0x5ff>
+     a66:	00 c0       	rjmp	.+0      	; 0xa68 <__stack+0x609>
+     a68:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     a6a:	1b ba       	out	0x1b, r1	; 27
+     a6c:	8f ef       	ldi	r24, 0xFF	; 255
+     a6e:	94 e3       	ldi	r25, 0x34	; 52
+     a70:	ac e0       	ldi	r26, 0x0C	; 12
+     a72:	81 50       	subi	r24, 0x01	; 1
+     a74:	90 40       	sbci	r25, 0x00	; 0
+     a76:	a0 40       	sbci	r26, 0x00	; 0
+     a78:	e1 f7       	brne	.-8      	; 0xa72 <__stack+0x613>
+     a7a:	00 c0       	rjmp	.+0      	; 0xa7c <__stack+0x61d>
+     a7c:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     a7e:	ab 98       	cbi	0x15, 3	; 21
+     a80:	8f ed       	ldi	r24, 0xDF	; 223
+     a82:	93 e9       	ldi	r25, 0x93	; 147
+     a84:	a4 e0       	ldi	r26, 0x04	; 4
+     a86:	81 50       	subi	r24, 0x01	; 1
+     a88:	90 40       	sbci	r25, 0x00	; 0
+     a8a:	a0 40       	sbci	r26, 0x00	; 0
+     a8c:	e1 f7       	brne	.-8      	; 0xa86 <__stack+0x627>
+     a8e:	00 c0       	rjmp	.+0      	; 0xa90 <__stack+0x631>
+     a90:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     a92:	ab 9a       	sbi	0x15, 3	; 21
+					
+										
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     a94:	80 e8       	ldi	r24, 0x80	; 128
+     a96:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     a9a:	c5 01       	movw	r24, r10
+     a9c:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     aa0:	80 ec       	ldi	r24, 0xC0	; 192
+     aa2:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     aa6:	ce 01       	movw	r24, r28
+     aa8:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     aac:	8b b3       	in	r24, 0x1b	; 27
+     aae:	80 69       	ori	r24, 0x90	; 144
+     ab0:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     ab2:	8b b3       	in	r24, 0x1b	; 27
+     ab4:	8f 79       	andi	r24, 0x9F	; 159
+     ab6:	8b bb       	out	0x1b, r24	; 27
+     ab8:	8f eb       	ldi	r24, 0xBF	; 191
+     aba:	97 e2       	ldi	r25, 0x27	; 39
+     abc:	a9 e0       	ldi	r26, 0x09	; 9
+     abe:	81 50       	subi	r24, 0x01	; 1
+     ac0:	90 40       	sbci	r25, 0x00	; 0
+     ac2:	a0 40       	sbci	r26, 0x00	; 0
+     ac4:	e1 f7       	brne	.-8      	; 0xabe <__stack+0x65f>
+     ac6:	00 c0       	rjmp	.+0      	; 0xac8 <__stack+0x669>
+     ac8:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+     aca:	1b ba       	out	0x1b, r1	; 27
+     acc:	8f e3       	ldi	r24, 0x3F	; 63
+     ace:	9d e0       	ldi	r25, 0x0D	; 13
+     ad0:	a3 e0       	ldi	r26, 0x03	; 3
+     ad2:	81 50       	subi	r24, 0x01	; 1
+     ad4:	90 40       	sbci	r25, 0x00	; 0
+     ad6:	a0 40       	sbci	r26, 0x00	; 0
+     ad8:	e1 f7       	brne	.-8      	; 0xad2 <__stack+0x673>
+     ada:	00 c0       	rjmp	.+0      	; 0xadc <__stack+0x67d>
+     adc:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     ade:	81 e0       	ldi	r24, 0x01	; 1
+     ae0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+      /************************************************************************/
+	/*                Kanhaiya Nagar Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     ae4:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     ae6:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     ae8:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     aea:	db 98       	cbi	0x1b, 3	; 27
+     aec:	8f e7       	ldi	r24, 0x7F	; 127
+     aee:	9a e1       	ldi	r25, 0x1A	; 26
+     af0:	a6 e0       	ldi	r26, 0x06	; 6
+     af2:	81 50       	subi	r24, 0x01	; 1
+     af4:	90 40       	sbci	r25, 0x00	; 0
+     af6:	a0 40       	sbci	r26, 0x00	; 0
+     af8:	e1 f7       	brne	.-8      	; 0xaf2 <__stack+0x693>
+     afa:	00 c0       	rjmp	.+0      	; 0xafc <__stack+0x69d>
+     afc:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     afe:	80 e8       	ldi	r24, 0x80	; 128
+     b00:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     b04:	c7 01       	movw	r24, r14
+     b06:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     b0a:	80 ec       	ldi	r24, 0xC0	; 192
+     b0c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Kanhaiya Nagar   ");
+     b10:	83 e0       	ldi	r24, 0x03	; 3
+     b12:	92 e0       	ldi	r25, 0x02	; 2
+     b14:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     b18:	8f ef       	ldi	r24, 0xFF	; 255
+     b1a:	99 e6       	ldi	r25, 0x69	; 105
+     b1c:	a8 e1       	ldi	r26, 0x18	; 24
+     b1e:	81 50       	subi	r24, 0x01	; 1
+     b20:	90 40       	sbci	r25, 0x00	; 0
+     b22:	a0 40       	sbci	r26, 0x00	; 0
+     b24:	e1 f7       	brne	.-8      	; 0xb1e <__stack+0x6bf>
+     b26:	00 c0       	rjmp	.+0      	; 0xb28 <__stack+0x6c9>
+     b28:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     b2a:	81 e0       	ldi	r24, 0x01	; 1
+     b2c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     b30:	1b ba       	out	0x1b, r1	; 27
+     b32:	8f e7       	ldi	r24, 0x7F	; 127
+     b34:	9a e1       	ldi	r25, 0x1A	; 26
+     b36:	a6 e0       	ldi	r26, 0x06	; 6
+     b38:	81 50       	subi	r24, 0x01	; 1
+     b3a:	90 40       	sbci	r25, 0x00	; 0
+     b3c:	a0 40       	sbci	r26, 0x00	; 0
+     b3e:	e1 f7       	brne	.-8      	; 0xb38 <__stack+0x6d9>
+     b40:	00 c0       	rjmp	.+0      	; 0xb42 <__stack+0x6e3>
+     b42:	00 00       	nop
+_delay_ms(2000);
+
+PORTB&=~(1<<7);  // for led
+     b44:	c7 98       	cbi	0x18, 7	; 24
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     b46:	80 e8       	ldi	r24, 0x80	; 128
+     b48:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  Kanhaiya Nagar   ");
+     b4c:	86 e1       	ldi	r24, 0x16	; 22
+     b4e:	92 e0       	ldi	r25, 0x02	; 2
+     b50:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     b54:	80 ec       	ldi	r24, 0xC0	; 192
+     b56:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     b5a:	c6 01       	movw	r24, r12
+     b5c:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     b60:	8f eb       	ldi	r24, 0xBF	; 191
+     b62:	97 e2       	ldi	r25, 0x27	; 39
+     b64:	a9 e0       	ldi	r26, 0x09	; 9
+     b66:	81 50       	subi	r24, 0x01	; 1
+     b68:	90 40       	sbci	r25, 0x00	; 0
+     b6a:	a0 40       	sbci	r26, 0x00	; 0
+     b6c:	e1 f7       	brne	.-8      	; 0xb66 <__stack+0x707>
+     b6e:	00 c0       	rjmp	.+0      	; 0xb70 <__stack+0x711>
+     b70:	00 00       	nop
+	_delay_ms(3000);
+
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     b72:	ab 98       	cbi	0x15, 3	; 21
+     b74:	8f ed       	ldi	r24, 0xDF	; 223
+     b76:	93 e9       	ldi	r25, 0x93	; 147
+     b78:	a4 e0       	ldi	r26, 0x04	; 4
+     b7a:	81 50       	subi	r24, 0x01	; 1
+     b7c:	90 40       	sbci	r25, 0x00	; 0
+     b7e:	a0 40       	sbci	r26, 0x00	; 0
+     b80:	e1 f7       	brne	.-8      	; 0xb7a <__stack+0x71b>
+     b82:	00 c0       	rjmp	.+0      	; 0xb84 <__stack+0x725>
+     b84:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     b86:	ab 9a       	sbi	0x15, 3	; 21
+     b88:	8f ed       	ldi	r24, 0xDF	; 223
+     b8a:	93 e9       	ldi	r25, 0x93	; 147
+     b8c:	a4 e0       	ldi	r26, 0x04	; 4
+     b8e:	81 50       	subi	r24, 0x01	; 1
+     b90:	90 40       	sbci	r25, 0x00	; 0
+     b92:	a0 40       	sbci	r26, 0x00	; 0
+     b94:	e1 f7       	brne	.-8      	; 0xb8e <__stack+0x72f>
+     b96:	00 c0       	rjmp	.+0      	; 0xb98 <__stack+0x739>
+     b98:	00 00       	nop
+						_delay_ms(1500);
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     b9a:	80 e8       	ldi	r24, 0x80	; 128
+     b9c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     ba0:	c8 01       	movw	r24, r16
+     ba2:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     ba6:	80 ec       	ldi	r24, 0xC0	; 192
+     ba8:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     bac:	ce 01       	movw	r24, r28
+     bae:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     bb2:	8f e7       	ldi	r24, 0x7F	; 127
+     bb4:	9a e1       	ldi	r25, 0x1A	; 26
+     bb6:	a6 e0       	ldi	r26, 0x06	; 6
+     bb8:	81 50       	subi	r24, 0x01	; 1
+     bba:	90 40       	sbci	r25, 0x00	; 0
+     bbc:	a0 40       	sbci	r26, 0x00	; 0
+     bbe:	e1 f7       	brne	.-8      	; 0xbb8 <__stack+0x759>
+     bc0:	00 c0       	rjmp	.+0      	; 0xbc2 <__stack+0x763>
+     bc2:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     bc4:	8b b3       	in	r24, 0x1b	; 27
+     bc6:	80 66       	ori	r24, 0x60	; 96
+     bc8:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     bca:	dc 98       	cbi	0x1b, 4	; 27
+     bcc:	8f eb       	ldi	r24, 0xBF	; 191
+     bce:	97 e2       	ldi	r25, 0x27	; 39
+     bd0:	a9 e0       	ldi	r26, 0x09	; 9
+     bd2:	81 50       	subi	r24, 0x01	; 1
+     bd4:	90 40       	sbci	r25, 0x00	; 0
+     bd6:	a0 40       	sbci	r26, 0x00	; 0
+     bd8:	e1 f7       	brne	.-8      	; 0xbd2 <__stack+0x773>
+     bda:	00 c0       	rjmp	.+0      	; 0xbdc <__stack+0x77d>
+     bdc:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     bde:	1b ba       	out	0x1b, r1	; 27
+     be0:	8f ef       	ldi	r24, 0xFF	; 255
+     be2:	94 e3       	ldi	r25, 0x34	; 52
+     be4:	ac e0       	ldi	r26, 0x0C	; 12
+     be6:	81 50       	subi	r24, 0x01	; 1
+     be8:	90 40       	sbci	r25, 0x00	; 0
+     bea:	a0 40       	sbci	r26, 0x00	; 0
+     bec:	e1 f7       	brne	.-8      	; 0xbe6 <__stack+0x787>
+     bee:	00 c0       	rjmp	.+0      	; 0xbf0 <__stack+0x791>
+     bf0:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     bf2:	ab 98       	cbi	0x15, 3	; 21
+     bf4:	8f ed       	ldi	r24, 0xDF	; 223
+     bf6:	93 e9       	ldi	r25, 0x93	; 147
+     bf8:	a4 e0       	ldi	r26, 0x04	; 4
+     bfa:	81 50       	subi	r24, 0x01	; 1
+     bfc:	90 40       	sbci	r25, 0x00	; 0
+     bfe:	a0 40       	sbci	r26, 0x00	; 0
+     c00:	e1 f7       	brne	.-8      	; 0xbfa <__stack+0x79b>
+     c02:	00 c0       	rjmp	.+0      	; 0xc04 <__stack+0x7a5>
+     c04:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     c06:	ab 9a       	sbi	0x15, 3	; 21
+						
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     c08:	80 e8       	ldi	r24, 0x80	; 128
+     c0a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     c0e:	c5 01       	movw	r24, r10
+     c10:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     c14:	80 ec       	ldi	r24, 0xC0	; 192
+     c16:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     c1a:	ce 01       	movw	r24, r28
+     c1c:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     c20:	8b b3       	in	r24, 0x1b	; 27
+     c22:	80 69       	ori	r24, 0x90	; 144
+     c24:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     c26:	8b b3       	in	r24, 0x1b	; 27
+     c28:	8f 79       	andi	r24, 0x9F	; 159
+     c2a:	8b bb       	out	0x1b, r24	; 27
+     c2c:	8f eb       	ldi	r24, 0xBF	; 191
+     c2e:	97 e2       	ldi	r25, 0x27	; 39
+     c30:	a9 e0       	ldi	r26, 0x09	; 9
+     c32:	81 50       	subi	r24, 0x01	; 1
+     c34:	90 40       	sbci	r25, 0x00	; 0
+     c36:	a0 40       	sbci	r26, 0x00	; 0
+     c38:	e1 f7       	brne	.-8      	; 0xc32 <__stack+0x7d3>
+     c3a:	00 c0       	rjmp	.+0      	; 0xc3c <__stack+0x7dd>
+     c3c:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+     c3e:	1b ba       	out	0x1b, r1	; 27
+     c40:	8f e3       	ldi	r24, 0x3F	; 63
+     c42:	9d e0       	ldi	r25, 0x0D	; 13
+     c44:	a3 e0       	ldi	r26, 0x03	; 3
+     c46:	81 50       	subi	r24, 0x01	; 1
+     c48:	90 40       	sbci	r25, 0x00	; 0
+     c4a:	a0 40       	sbci	r26, 0x00	; 0
+     c4c:	e1 f7       	brne	.-8      	; 0xc46 <__stack+0x7e7>
+     c4e:	00 c0       	rjmp	.+0      	; 0xc50 <__stack+0x7f1>
+     c50:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     c52:	81 e0       	ldi	r24, 0x01	; 1
+     c54:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+      /************************************************************************/
+	/*                Inder Lok Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     c58:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     c5a:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     c5c:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     c5e:	db 98       	cbi	0x1b, 3	; 27
+     c60:	8f e7       	ldi	r24, 0x7F	; 127
+     c62:	9a e1       	ldi	r25, 0x1A	; 26
+     c64:	a6 e0       	ldi	r26, 0x06	; 6
+     c66:	81 50       	subi	r24, 0x01	; 1
+     c68:	90 40       	sbci	r25, 0x00	; 0
+     c6a:	a0 40       	sbci	r26, 0x00	; 0
+     c6c:	e1 f7       	brne	.-8      	; 0xc66 <__stack+0x807>
+     c6e:	00 c0       	rjmp	.+0      	; 0xc70 <__stack+0x811>
+     c70:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     c72:	80 e8       	ldi	r24, 0x80	; 128
+     c74:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     c78:	c7 01       	movw	r24, r14
+     c7a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     c7e:	80 ec       	ldi	r24, 0xC0	; 192
+     c80:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("    Inder Lok    ");
+     c84:	8a e2       	ldi	r24, 0x2A	; 42
+     c86:	92 e0       	ldi	r25, 0x02	; 2
+     c88:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     c8c:	8f ef       	ldi	r24, 0xFF	; 255
+     c8e:	99 e6       	ldi	r25, 0x69	; 105
+     c90:	a8 e1       	ldi	r26, 0x18	; 24
+     c92:	81 50       	subi	r24, 0x01	; 1
+     c94:	90 40       	sbci	r25, 0x00	; 0
+     c96:	a0 40       	sbci	r26, 0x00	; 0
+     c98:	e1 f7       	brne	.-8      	; 0xc92 <__stack+0x833>
+     c9a:	00 c0       	rjmp	.+0      	; 0xc9c <__stack+0x83d>
+     c9c:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     c9e:	81 e0       	ldi	r24, 0x01	; 1
+     ca0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     ca4:	1b ba       	out	0x1b, r1	; 27
+     ca6:	8f e7       	ldi	r24, 0x7F	; 127
+     ca8:	9a e1       	ldi	r25, 0x1A	; 26
+     caa:	a6 e0       	ldi	r26, 0x06	; 6
+     cac:	81 50       	subi	r24, 0x01	; 1
+     cae:	90 40       	sbci	r25, 0x00	; 0
+     cb0:	a0 40       	sbci	r26, 0x00	; 0
+     cb2:	e1 f7       	brne	.-8      	; 0xcac <__stack+0x84d>
+     cb4:	00 c0       	rjmp	.+0      	; 0xcb6 <__stack+0x857>
+     cb6:	00 00       	nop
+_delay_ms(2000);
+
+PORTC&=~(1<<4);  // for led
+     cb8:	ac 98       	cbi	0x15, 4	; 21
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     cba:	80 e8       	ldi	r24, 0x80	; 128
+     cbc:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("    Inder Lok      ");
+     cc0:	8c e3       	ldi	r24, 0x3C	; 60
+     cc2:	92 e0       	ldi	r25, 0x02	; 2
+     cc4:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     cc8:	80 ec       	ldi	r24, 0xC0	; 192
+     cca:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     cce:	c6 01       	movw	r24, r12
+     cd0:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     cd4:	8f eb       	ldi	r24, 0xBF	; 191
+     cd6:	97 e2       	ldi	r25, 0x27	; 39
+     cd8:	a9 e0       	ldi	r26, 0x09	; 9
+     cda:	81 50       	subi	r24, 0x01	; 1
+     cdc:	90 40       	sbci	r25, 0x00	; 0
+     cde:	a0 40       	sbci	r26, 0x00	; 0
+     ce0:	e1 f7       	brne	.-8      	; 0xcda <__stack+0x87b>
+     ce2:	00 c0       	rjmp	.+0      	; 0xce4 <__stack+0x885>
+     ce4:	00 00       	nop
+	_delay_ms(3000);
+	
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     ce6:	ab 98       	cbi	0x15, 3	; 21
+     ce8:	8f ed       	ldi	r24, 0xDF	; 223
+     cea:	93 e9       	ldi	r25, 0x93	; 147
+     cec:	a4 e0       	ldi	r26, 0x04	; 4
+     cee:	81 50       	subi	r24, 0x01	; 1
+     cf0:	90 40       	sbci	r25, 0x00	; 0
+     cf2:	a0 40       	sbci	r26, 0x00	; 0
+     cf4:	e1 f7       	brne	.-8      	; 0xcee <__stack+0x88f>
+     cf6:	00 c0       	rjmp	.+0      	; 0xcf8 <__stack+0x899>
+     cf8:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     cfa:	ab 9a       	sbi	0x15, 3	; 21
+						
+						
+	
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     cfc:	80 e8       	ldi	r24, 0x80	; 128
+     cfe:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     d02:	c8 01       	movw	r24, r16
+     d04:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     d08:	80 ec       	ldi	r24, 0xC0	; 192
+     d0a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     d0e:	ce 01       	movw	r24, r28
+     d10:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     d14:	8f e7       	ldi	r24, 0x7F	; 127
+     d16:	9a e1       	ldi	r25, 0x1A	; 26
+     d18:	a6 e0       	ldi	r26, 0x06	; 6
+     d1a:	81 50       	subi	r24, 0x01	; 1
+     d1c:	90 40       	sbci	r25, 0x00	; 0
+     d1e:	a0 40       	sbci	r26, 0x00	; 0
+     d20:	e1 f7       	brne	.-8      	; 0xd1a <__stack+0x8bb>
+     d22:	00 c0       	rjmp	.+0      	; 0xd24 <__stack+0x8c5>
+     d24:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     d26:	8b b3       	in	r24, 0x1b	; 27
+     d28:	80 66       	ori	r24, 0x60	; 96
+     d2a:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     d2c:	dc 98       	cbi	0x1b, 4	; 27
+     d2e:	8f eb       	ldi	r24, 0xBF	; 191
+     d30:	97 e2       	ldi	r25, 0x27	; 39
+     d32:	a9 e0       	ldi	r26, 0x09	; 9
+     d34:	81 50       	subi	r24, 0x01	; 1
+     d36:	90 40       	sbci	r25, 0x00	; 0
+     d38:	a0 40       	sbci	r26, 0x00	; 0
+     d3a:	e1 f7       	brne	.-8      	; 0xd34 <__stack+0x8d5>
+     d3c:	00 c0       	rjmp	.+0      	; 0xd3e <__stack+0x8df>
+     d3e:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     d40:	1b ba       	out	0x1b, r1	; 27
+     d42:	8f ef       	ldi	r24, 0xFF	; 255
+     d44:	94 e3       	ldi	r25, 0x34	; 52
+     d46:	ac e0       	ldi	r26, 0x0C	; 12
+     d48:	81 50       	subi	r24, 0x01	; 1
+     d4a:	90 40       	sbci	r25, 0x00	; 0
+     d4c:	a0 40       	sbci	r26, 0x00	; 0
+     d4e:	e1 f7       	brne	.-8      	; 0xd48 <__stack+0x8e9>
+     d50:	00 c0       	rjmp	.+0      	; 0xd52 <__stack+0x8f3>
+     d52:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     d54:	ab 98       	cbi	0x15, 3	; 21
+     d56:	8f ed       	ldi	r24, 0xDF	; 223
+     d58:	93 e9       	ldi	r25, 0x93	; 147
+     d5a:	a4 e0       	ldi	r26, 0x04	; 4
+     d5c:	81 50       	subi	r24, 0x01	; 1
+     d5e:	90 40       	sbci	r25, 0x00	; 0
+     d60:	a0 40       	sbci	r26, 0x00	; 0
+     d62:	e1 f7       	brne	.-8      	; 0xd5c <__stack+0x8fd>
+     d64:	00 c0       	rjmp	.+0      	; 0xd66 <__stack+0x907>
+     d66:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     d68:	ab 9a       	sbi	0x15, 3	; 21
+						
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     d6a:	80 e8       	ldi	r24, 0x80	; 128
+     d6c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     d70:	c5 01       	movw	r24, r10
+     d72:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     d76:	80 ec       	ldi	r24, 0xC0	; 192
+     d78:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     d7c:	ce 01       	movw	r24, r28
+     d7e:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     d82:	8b b3       	in	r24, 0x1b	; 27
+     d84:	80 69       	ori	r24, 0x90	; 144
+     d86:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     d88:	8b b3       	in	r24, 0x1b	; 27
+     d8a:	8f 79       	andi	r24, 0x9F	; 159
+     d8c:	8b bb       	out	0x1b, r24	; 27
+     d8e:	8f eb       	ldi	r24, 0xBF	; 191
+     d90:	97 e2       	ldi	r25, 0x27	; 39
+     d92:	a9 e0       	ldi	r26, 0x09	; 9
+     d94:	81 50       	subi	r24, 0x01	; 1
+     d96:	90 40       	sbci	r25, 0x00	; 0
+     d98:	a0 40       	sbci	r26, 0x00	; 0
+     d9a:	e1 f7       	brne	.-8      	; 0xd94 <__stack+0x935>
+     d9c:	00 c0       	rjmp	.+0      	; 0xd9e <__stack+0x93f>
+     d9e:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+     da0:	1b ba       	out	0x1b, r1	; 27
+     da2:	8f e3       	ldi	r24, 0x3F	; 63
+     da4:	9d e0       	ldi	r25, 0x0D	; 13
+     da6:	a3 e0       	ldi	r26, 0x03	; 3
+     da8:	81 50       	subi	r24, 0x01	; 1
+     daa:	90 40       	sbci	r25, 0x00	; 0
+     dac:	a0 40       	sbci	r26, 0x00	; 0
+     dae:	e1 f7       	brne	.-8      	; 0xda8 <__stack+0x949>
+     db0:	00 c0       	rjmp	.+0      	; 0xdb2 <__stack+0x953>
+     db2:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     db4:	81 e0       	ldi	r24, 0x01	; 1
+     db6:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+         /************************************************************************/
+	/*                Shastri Nagar Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     dba:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     dbc:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     dbe:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     dc0:	db 98       	cbi	0x1b, 3	; 27
+     dc2:	8f e7       	ldi	r24, 0x7F	; 127
+     dc4:	9a e1       	ldi	r25, 0x1A	; 26
+     dc6:	a6 e0       	ldi	r26, 0x06	; 6
+     dc8:	81 50       	subi	r24, 0x01	; 1
+     dca:	90 40       	sbci	r25, 0x00	; 0
+     dcc:	a0 40       	sbci	r26, 0x00	; 0
+     dce:	e1 f7       	brne	.-8      	; 0xdc8 <__stack+0x969>
+     dd0:	00 c0       	rjmp	.+0      	; 0xdd2 <__stack+0x973>
+     dd2:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     dd4:	80 e8       	ldi	r24, 0x80	; 128
+     dd6:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     dda:	c7 01       	movw	r24, r14
+     ddc:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     de0:	80 ec       	ldi	r24, 0xC0	; 192
+     de2:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("  Shastri Nagar  ");
+     de6:	80 e5       	ldi	r24, 0x50	; 80
+     de8:	92 e0       	ldi	r25, 0x02	; 2
+     dea:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     dee:	8f ef       	ldi	r24, 0xFF	; 255
+     df0:	99 e6       	ldi	r25, 0x69	; 105
+     df2:	a8 e1       	ldi	r26, 0x18	; 24
+     df4:	81 50       	subi	r24, 0x01	; 1
+     df6:	90 40       	sbci	r25, 0x00	; 0
+     df8:	a0 40       	sbci	r26, 0x00	; 0
+     dfa:	e1 f7       	brne	.-8      	; 0xdf4 <__stack+0x995>
+     dfc:	00 c0       	rjmp	.+0      	; 0xdfe <__stack+0x99f>
+     dfe:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     e00:	81 e0       	ldi	r24, 0x01	; 1
+     e02:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     e06:	1b ba       	out	0x1b, r1	; 27
+     e08:	8f e7       	ldi	r24, 0x7F	; 127
+     e0a:	9a e1       	ldi	r25, 0x1A	; 26
+     e0c:	a6 e0       	ldi	r26, 0x06	; 6
+     e0e:	81 50       	subi	r24, 0x01	; 1
+     e10:	90 40       	sbci	r25, 0x00	; 0
+     e12:	a0 40       	sbci	r26, 0x00	; 0
+     e14:	e1 f7       	brne	.-8      	; 0xe0e <__stack+0x9af>
+     e16:	00 c0       	rjmp	.+0      	; 0xe18 <__stack+0x9b9>
+     e18:	00 00       	nop
+_delay_ms(2000);
+
+PORTC&=~(1<<5);  // for led
+     e1a:	ad 98       	cbi	0x15, 5	; 21
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     e1c:	80 e8       	ldi	r24, 0x80	; 128
+     e1e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  Shastri Nagar    ");
+     e22:	82 e6       	ldi	r24, 0x62	; 98
+     e24:	92 e0       	ldi	r25, 0x02	; 2
+     e26:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     e2a:	80 ec       	ldi	r24, 0xC0	; 192
+     e2c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     e30:	c6 01       	movw	r24, r12
+     e32:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     e36:	8f eb       	ldi	r24, 0xBF	; 191
+     e38:	97 e2       	ldi	r25, 0x27	; 39
+     e3a:	a9 e0       	ldi	r26, 0x09	; 9
+     e3c:	81 50       	subi	r24, 0x01	; 1
+     e3e:	90 40       	sbci	r25, 0x00	; 0
+     e40:	a0 40       	sbci	r26, 0x00	; 0
+     e42:	e1 f7       	brne	.-8      	; 0xe3c <__stack+0x9dd>
+     e44:	00 c0       	rjmp	.+0      	; 0xe46 <__stack+0x9e7>
+     e46:	00 00       	nop
+	_delay_ms(3000);
+
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     e48:	ab 98       	cbi	0x15, 3	; 21
+     e4a:	8f ed       	ldi	r24, 0xDF	; 223
+     e4c:	93 e9       	ldi	r25, 0x93	; 147
+     e4e:	a4 e0       	ldi	r26, 0x04	; 4
+     e50:	81 50       	subi	r24, 0x01	; 1
+     e52:	90 40       	sbci	r25, 0x00	; 0
+     e54:	a0 40       	sbci	r26, 0x00	; 0
+     e56:	e1 f7       	brne	.-8      	; 0xe50 <__stack+0x9f1>
+     e58:	00 c0       	rjmp	.+0      	; 0xe5a <__stack+0x9fb>
+     e5a:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     e5c:	ab 9a       	sbi	0x15, 3	; 21
+						
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     e5e:	80 e8       	ldi	r24, 0x80	; 128
+     e60:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     e64:	c8 01       	movw	r24, r16
+     e66:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     e6a:	80 ec       	ldi	r24, 0xC0	; 192
+     e6c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     e70:	ce 01       	movw	r24, r28
+     e72:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     e76:	8f e7       	ldi	r24, 0x7F	; 127
+     e78:	9a e1       	ldi	r25, 0x1A	; 26
+     e7a:	a6 e0       	ldi	r26, 0x06	; 6
+     e7c:	81 50       	subi	r24, 0x01	; 1
+     e7e:	90 40       	sbci	r25, 0x00	; 0
+     e80:	a0 40       	sbci	r26, 0x00	; 0
+     e82:	e1 f7       	brne	.-8      	; 0xe7c <__stack+0xa1d>
+     e84:	00 c0       	rjmp	.+0      	; 0xe86 <__stack+0xa27>
+     e86:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     e88:	8b b3       	in	r24, 0x1b	; 27
+     e8a:	80 66       	ori	r24, 0x60	; 96
+     e8c:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     e8e:	dc 98       	cbi	0x1b, 4	; 27
+     e90:	8f eb       	ldi	r24, 0xBF	; 191
+     e92:	97 e2       	ldi	r25, 0x27	; 39
+     e94:	a9 e0       	ldi	r26, 0x09	; 9
+     e96:	81 50       	subi	r24, 0x01	; 1
+     e98:	90 40       	sbci	r25, 0x00	; 0
+     e9a:	a0 40       	sbci	r26, 0x00	; 0
+     e9c:	e1 f7       	brne	.-8      	; 0xe96 <__stack+0xa37>
+     e9e:	00 c0       	rjmp	.+0      	; 0xea0 <__stack+0xa41>
+     ea0:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+     ea2:	1b ba       	out	0x1b, r1	; 27
+     ea4:	8f ef       	ldi	r24, 0xFF	; 255
+     ea6:	94 e3       	ldi	r25, 0x34	; 52
+     ea8:	ac e0       	ldi	r26, 0x0C	; 12
+     eaa:	81 50       	subi	r24, 0x01	; 1
+     eac:	90 40       	sbci	r25, 0x00	; 0
+     eae:	a0 40       	sbci	r26, 0x00	; 0
+     eb0:	e1 f7       	brne	.-8      	; 0xeaa <__stack+0xa4b>
+     eb2:	00 c0       	rjmp	.+0      	; 0xeb4 <__stack+0xa55>
+     eb4:	00 00       	nop
+		_delay_ms(4000);   //door open for 
+		
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     eb6:	ab 98       	cbi	0x15, 3	; 21
+     eb8:	8f ed       	ldi	r24, 0xDF	; 223
+     eba:	93 e9       	ldi	r25, 0x93	; 147
+     ebc:	a4 e0       	ldi	r26, 0x04	; 4
+     ebe:	81 50       	subi	r24, 0x01	; 1
+     ec0:	90 40       	sbci	r25, 0x00	; 0
+     ec2:	a0 40       	sbci	r26, 0x00	; 0
+     ec4:	e1 f7       	brne	.-8      	; 0xebe <__stack+0xa5f>
+     ec6:	00 c0       	rjmp	.+0      	; 0xec8 <__stack+0xa69>
+     ec8:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     eca:	ab 9a       	sbi	0x15, 3	; 21
+							
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     ecc:	80 e8       	ldi	r24, 0x80	; 128
+     ece:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+     ed2:	c5 01       	movw	r24, r10
+     ed4:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     ed8:	80 ec       	ldi	r24, 0xC0	; 192
+     eda:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     ede:	ce 01       	movw	r24, r28
+     ee0:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+     ee4:	8b b3       	in	r24, 0x1b	; 27
+     ee6:	80 69       	ori	r24, 0x90	; 144
+     ee8:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+     eea:	8b b3       	in	r24, 0x1b	; 27
+     eec:	8f 79       	andi	r24, 0x9F	; 159
+     eee:	8b bb       	out	0x1b, r24	; 27
+     ef0:	8f eb       	ldi	r24, 0xBF	; 191
+     ef2:	97 e2       	ldi	r25, 0x27	; 39
+     ef4:	a9 e0       	ldi	r26, 0x09	; 9
+     ef6:	81 50       	subi	r24, 0x01	; 1
+     ef8:	90 40       	sbci	r25, 0x00	; 0
+     efa:	a0 40       	sbci	r26, 0x00	; 0
+     efc:	e1 f7       	brne	.-8      	; 0xef6 <__stack+0xa97>
+     efe:	00 c0       	rjmp	.+0      	; 0xf00 <__stack+0xaa1>
+     f00:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+     f02:	1b ba       	out	0x1b, r1	; 27
+     f04:	8f e3       	ldi	r24, 0x3F	; 63
+     f06:	9d e0       	ldi	r25, 0x0D	; 13
+     f08:	a3 e0       	ldi	r26, 0x03	; 3
+     f0a:	81 50       	subi	r24, 0x01	; 1
+     f0c:	90 40       	sbci	r25, 0x00	; 0
+     f0e:	a0 40       	sbci	r26, 0x00	; 0
+     f10:	e1 f7       	brne	.-8      	; 0xf0a <__stack+0xaab>
+     f12:	00 c0       	rjmp	.+0      	; 0xf14 <__stack+0xab5>
+     f14:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+     f16:	81 e0       	ldi	r24, 0x01	; 1
+     f18:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+
+         /************************************************************************/
+	/*                Partap Nagar Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+     f1c:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+     f1e:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+     f20:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+     f22:	db 98       	cbi	0x1b, 3	; 27
+     f24:	8f e7       	ldi	r24, 0x7F	; 127
+     f26:	9a e1       	ldi	r25, 0x1A	; 26
+     f28:	a6 e0       	ldi	r26, 0x06	; 6
+     f2a:	81 50       	subi	r24, 0x01	; 1
+     f2c:	90 40       	sbci	r25, 0x00	; 0
+     f2e:	a0 40       	sbci	r26, 0x00	; 0
+     f30:	e1 f7       	brne	.-8      	; 0xf2a <__stack+0xacb>
+     f32:	00 c0       	rjmp	.+0      	; 0xf34 <__stack+0xad5>
+     f34:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+     f36:	80 e8       	ldi	r24, 0x80	; 128
+     f38:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+     f3c:	c7 01       	movw	r24, r14
+     f3e:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     f42:	80 ec       	ldi	r24, 0xC0	; 192
+     f44:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("  Partap Nagar  ");
+     f48:	86 e7       	ldi	r24, 0x76	; 118
+     f4a:	92 e0       	ldi	r25, 0x02	; 2
+     f4c:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     f50:	8f ef       	ldi	r24, 0xFF	; 255
+     f52:	99 e6       	ldi	r25, 0x69	; 105
+     f54:	a8 e1       	ldi	r26, 0x18	; 24
+     f56:	81 50       	subi	r24, 0x01	; 1
+     f58:	90 40       	sbci	r25, 0x00	; 0
+     f5a:	a0 40       	sbci	r26, 0x00	; 0
+     f5c:	e1 f7       	brne	.-8      	; 0xf56 <__stack+0xaf7>
+     f5e:	00 c0       	rjmp	.+0      	; 0xf60 <__stack+0xb01>
+     f60:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+     f62:	81 e0       	ldi	r24, 0x01	; 1
+     f64:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+     f68:	1b ba       	out	0x1b, r1	; 27
+     f6a:	8f e7       	ldi	r24, 0x7F	; 127
+     f6c:	9a e1       	ldi	r25, 0x1A	; 26
+     f6e:	a6 e0       	ldi	r26, 0x06	; 6
+     f70:	81 50       	subi	r24, 0x01	; 1
+     f72:	90 40       	sbci	r25, 0x00	; 0
+     f74:	a0 40       	sbci	r26, 0x00	; 0
+     f76:	e1 f7       	brne	.-8      	; 0xf70 <__stack+0xb11>
+     f78:	00 c0       	rjmp	.+0      	; 0xf7a <__stack+0xb1b>
+     f7a:	00 00       	nop
+_delay_ms(2000);
+
+PORTC&=~(1<<6);  // for led
+     f7c:	ae 98       	cbi	0x15, 6	; 21
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     f7e:	80 e8       	ldi	r24, 0x80	; 128
+     f80:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("   Partap Nagar    ");
+     f84:	87 e8       	ldi	r24, 0x87	; 135
+     f86:	92 e0       	ldi	r25, 0x02	; 2
+     f88:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     f8c:	80 ec       	ldi	r24, 0xC0	; 192
+     f8e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+     f92:	c6 01       	movw	r24, r12
+     f94:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     f98:	8f eb       	ldi	r24, 0xBF	; 191
+     f9a:	97 e2       	ldi	r25, 0x27	; 39
+     f9c:	a9 e0       	ldi	r26, 0x09	; 9
+     f9e:	81 50       	subi	r24, 0x01	; 1
+     fa0:	90 40       	sbci	r25, 0x00	; 0
+     fa2:	a0 40       	sbci	r26, 0x00	; 0
+     fa4:	e1 f7       	brne	.-8      	; 0xf9e <__stack+0xb3f>
+     fa6:	00 c0       	rjmp	.+0      	; 0xfa8 <__stack+0xb49>
+     fa8:	00 00       	nop
+	_delay_ms(3000);
+
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+     faa:	ab 98       	cbi	0x15, 3	; 21
+     fac:	8f ed       	ldi	r24, 0xDF	; 223
+     fae:	93 e9       	ldi	r25, 0x93	; 147
+     fb0:	a4 e0       	ldi	r26, 0x04	; 4
+     fb2:	81 50       	subi	r24, 0x01	; 1
+     fb4:	90 40       	sbci	r25, 0x00	; 0
+     fb6:	a0 40       	sbci	r26, 0x00	; 0
+     fb8:	e1 f7       	brne	.-8      	; 0xfb2 <__stack+0xb53>
+     fba:	00 c0       	rjmp	.+0      	; 0xfbc <__stack+0xb5d>
+     fbc:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+     fbe:	ab 9a       	sbi	0x15, 3	; 21
+						
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+     fc0:	80 e8       	ldi	r24, 0x80	; 128
+     fc2:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+     fc6:	c8 01       	movw	r24, r16
+     fc8:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+     fcc:	80 ec       	ldi	r24, 0xC0	; 192
+     fce:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+     fd2:	ce 01       	movw	r24, r28
+     fd4:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+     fd8:	8f e7       	ldi	r24, 0x7F	; 127
+     fda:	9a e1       	ldi	r25, 0x1A	; 26
+     fdc:	a6 e0       	ldi	r26, 0x06	; 6
+     fde:	81 50       	subi	r24, 0x01	; 1
+     fe0:	90 40       	sbci	r25, 0x00	; 0
+     fe2:	a0 40       	sbci	r26, 0x00	; 0
+     fe4:	e1 f7       	brne	.-8      	; 0xfde <__stack+0xb7f>
+     fe6:	00 c0       	rjmp	.+0      	; 0xfe8 <__stack+0xb89>
+     fe8:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+     fea:	8b b3       	in	r24, 0x1b	; 27
+     fec:	80 66       	ori	r24, 0x60	; 96
+     fee:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+     ff0:	dc 98       	cbi	0x1b, 4	; 27
+     ff2:	8f eb       	ldi	r24, 0xBF	; 191
+     ff4:	97 e2       	ldi	r25, 0x27	; 39
+     ff6:	a9 e0       	ldi	r26, 0x09	; 9
+     ff8:	81 50       	subi	r24, 0x01	; 1
+     ffa:	90 40       	sbci	r25, 0x00	; 0
+     ffc:	a0 40       	sbci	r26, 0x00	; 0
+     ffe:	e1 f7       	brne	.-8      	; 0xff8 <__stack+0xb99>
+    1000:	00 c0       	rjmp	.+0      	; 0x1002 <__stack+0xba3>
+    1002:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+    1004:	1b ba       	out	0x1b, r1	; 27
+    1006:	8f ef       	ldi	r24, 0xFF	; 255
+    1008:	94 e3       	ldi	r25, 0x34	; 52
+    100a:	ac e0       	ldi	r26, 0x0C	; 12
+    100c:	81 50       	subi	r24, 0x01	; 1
+    100e:	90 40       	sbci	r25, 0x00	; 0
+    1010:	a0 40       	sbci	r26, 0x00	; 0
+    1012:	e1 f7       	brne	.-8      	; 0x100c <__stack+0xbad>
+    1014:	00 c0       	rjmp	.+0      	; 0x1016 <__stack+0xbb7>
+    1016:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+    1018:	ab 98       	cbi	0x15, 3	; 21
+    101a:	8f ed       	ldi	r24, 0xDF	; 223
+    101c:	93 e9       	ldi	r25, 0x93	; 147
+    101e:	a4 e0       	ldi	r26, 0x04	; 4
+    1020:	81 50       	subi	r24, 0x01	; 1
+    1022:	90 40       	sbci	r25, 0x00	; 0
+    1024:	a0 40       	sbci	r26, 0x00	; 0
+    1026:	e1 f7       	brne	.-8      	; 0x1020 <__stack+0xbc1>
+    1028:	00 c0       	rjmp	.+0      	; 0x102a <__stack+0xbcb>
+    102a:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+    102c:	ab 9a       	sbi	0x15, 3	; 21
+						
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    102e:	80 e8       	ldi	r24, 0x80	; 128
+    1030:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+    1034:	c5 01       	movw	r24, r10
+    1036:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    103a:	80 ec       	ldi	r24, 0xC0	; 192
+    103c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+    1040:	ce 01       	movw	r24, r28
+    1042:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+    1046:	8b b3       	in	r24, 0x1b	; 27
+    1048:	80 69       	ori	r24, 0x90	; 144
+    104a:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+    104c:	8b b3       	in	r24, 0x1b	; 27
+    104e:	8f 79       	andi	r24, 0x9F	; 159
+    1050:	8b bb       	out	0x1b, r24	; 27
+    1052:	8f eb       	ldi	r24, 0xBF	; 191
+    1054:	97 e2       	ldi	r25, 0x27	; 39
+    1056:	a9 e0       	ldi	r26, 0x09	; 9
+    1058:	81 50       	subi	r24, 0x01	; 1
+    105a:	90 40       	sbci	r25, 0x00	; 0
+    105c:	a0 40       	sbci	r26, 0x00	; 0
+    105e:	e1 f7       	brne	.-8      	; 0x1058 <__stack+0xbf9>
+    1060:	00 c0       	rjmp	.+0      	; 0x1062 <__stack+0xc03>
+    1062:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+    1064:	1b ba       	out	0x1b, r1	; 27
+    1066:	8f e3       	ldi	r24, 0x3F	; 63
+    1068:	9d e0       	ldi	r25, 0x0D	; 13
+    106a:	a3 e0       	ldi	r26, 0x03	; 3
+    106c:	81 50       	subi	r24, 0x01	; 1
+    106e:	90 40       	sbci	r25, 0x00	; 0
+    1070:	a0 40       	sbci	r26, 0x00	; 0
+    1072:	e1 f7       	brne	.-8      	; 0x106c <__stack+0xc0d>
+    1074:	00 c0       	rjmp	.+0      	; 0x1076 <__stack+0xc17>
+    1076:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+    1078:	81 e0       	ldi	r24, 0x01	; 1
+    107a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+      /************************************************************************/
+	/*                Pulbangash Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+    107e:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+    1080:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+    1082:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+    1084:	db 98       	cbi	0x1b, 3	; 27
+    1086:	8f e7       	ldi	r24, 0x7F	; 127
+    1088:	9a e1       	ldi	r25, 0x1A	; 26
+    108a:	a6 e0       	ldi	r26, 0x06	; 6
+    108c:	81 50       	subi	r24, 0x01	; 1
+    108e:	90 40       	sbci	r25, 0x00	; 0
+    1090:	a0 40       	sbci	r26, 0x00	; 0
+    1092:	e1 f7       	brne	.-8      	; 0x108c <__stack+0xc2d>
+    1094:	00 c0       	rjmp	.+0      	; 0x1096 <__stack+0xc37>
+    1096:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+    1098:	80 e8       	ldi	r24, 0x80	; 128
+    109a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+    109e:	c7 01       	movw	r24, r14
+    10a0:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    10a4:	80 ec       	ldi	r24, 0xC0	; 192
+    10a6:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("   Pulbangash    ");
+    10aa:	8b e9       	ldi	r24, 0x9B	; 155
+    10ac:	92 e0       	ldi	r25, 0x02	; 2
+    10ae:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    10b2:	8f ef       	ldi	r24, 0xFF	; 255
+    10b4:	99 e6       	ldi	r25, 0x69	; 105
+    10b6:	a8 e1       	ldi	r26, 0x18	; 24
+    10b8:	81 50       	subi	r24, 0x01	; 1
+    10ba:	90 40       	sbci	r25, 0x00	; 0
+    10bc:	a0 40       	sbci	r26, 0x00	; 0
+    10be:	e1 f7       	brne	.-8      	; 0x10b8 <__stack+0xc59>
+    10c0:	00 c0       	rjmp	.+0      	; 0x10c2 <__stack+0xc63>
+    10c2:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+    10c4:	81 e0       	ldi	r24, 0x01	; 1
+    10c6:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+    10ca:	1b ba       	out	0x1b, r1	; 27
+    10cc:	8f e7       	ldi	r24, 0x7F	; 127
+    10ce:	9a e1       	ldi	r25, 0x1A	; 26
+    10d0:	a6 e0       	ldi	r26, 0x06	; 6
+    10d2:	81 50       	subi	r24, 0x01	; 1
+    10d4:	90 40       	sbci	r25, 0x00	; 0
+    10d6:	a0 40       	sbci	r26, 0x00	; 0
+    10d8:	e1 f7       	brne	.-8      	; 0x10d2 <__stack+0xc73>
+    10da:	00 c0       	rjmp	.+0      	; 0x10dc <__stack+0xc7d>
+    10dc:	00 00       	nop
+_delay_ms(2000);
+
+PORTC&=~(1<<7);  // for led
+    10de:	af 98       	cbi	0x15, 7	; 21
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    10e0:	80 e8       	ldi	r24, 0x80	; 128
+    10e2:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("    Pulbangash     ");
+    10e6:	8d ea       	ldi	r24, 0xAD	; 173
+    10e8:	92 e0       	ldi	r25, 0x02	; 2
+    10ea:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    10ee:	80 ec       	ldi	r24, 0xC0	; 192
+    10f0:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+    10f4:	c6 01       	movw	r24, r12
+    10f6:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    10fa:	8f eb       	ldi	r24, 0xBF	; 191
+    10fc:	97 e2       	ldi	r25, 0x27	; 39
+    10fe:	a9 e0       	ldi	r26, 0x09	; 9
+    1100:	81 50       	subi	r24, 0x01	; 1
+    1102:	90 40       	sbci	r25, 0x00	; 0
+    1104:	a0 40       	sbci	r26, 0x00	; 0
+    1106:	e1 f7       	brne	.-8      	; 0x1100 <__stack+0xca1>
+    1108:	00 c0       	rjmp	.+0      	; 0x110a <__stack+0xcab>
+    110a:	00 00       	nop
+	_delay_ms(3000);
+
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+    110c:	ab 98       	cbi	0x15, 3	; 21
+    110e:	8f ed       	ldi	r24, 0xDF	; 223
+    1110:	93 e9       	ldi	r25, 0x93	; 147
+    1112:	a4 e0       	ldi	r26, 0x04	; 4
+    1114:	81 50       	subi	r24, 0x01	; 1
+    1116:	90 40       	sbci	r25, 0x00	; 0
+    1118:	a0 40       	sbci	r26, 0x00	; 0
+    111a:	e1 f7       	brne	.-8      	; 0x1114 <__stack+0xcb5>
+    111c:	00 c0       	rjmp	.+0      	; 0x111e <__stack+0xcbf>
+    111e:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+    1120:	ab 9a       	sbi	0x15, 3	; 21
+						
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    1122:	80 e8       	ldi	r24, 0x80	; 128
+    1124:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+    1128:	c8 01       	movw	r24, r16
+    112a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    112e:	80 ec       	ldi	r24, 0xC0	; 192
+    1130:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+    1134:	ce 01       	movw	r24, r28
+    1136:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    113a:	8f e7       	ldi	r24, 0x7F	; 127
+    113c:	9a e1       	ldi	r25, 0x1A	; 26
+    113e:	a6 e0       	ldi	r26, 0x06	; 6
+    1140:	81 50       	subi	r24, 0x01	; 1
+    1142:	90 40       	sbci	r25, 0x00	; 0
+    1144:	a0 40       	sbci	r26, 0x00	; 0
+    1146:	e1 f7       	brne	.-8      	; 0x1140 <__stack+0xce1>
+    1148:	00 c0       	rjmp	.+0      	; 0x114a <__stack+0xceb>
+    114a:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+    114c:	8b b3       	in	r24, 0x1b	; 27
+    114e:	80 66       	ori	r24, 0x60	; 96
+    1150:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+    1152:	dc 98       	cbi	0x1b, 4	; 27
+    1154:	8f eb       	ldi	r24, 0xBF	; 191
+    1156:	97 e2       	ldi	r25, 0x27	; 39
+    1158:	a9 e0       	ldi	r26, 0x09	; 9
+    115a:	81 50       	subi	r24, 0x01	; 1
+    115c:	90 40       	sbci	r25, 0x00	; 0
+    115e:	a0 40       	sbci	r26, 0x00	; 0
+    1160:	e1 f7       	brne	.-8      	; 0x115a <__stack+0xcfb>
+    1162:	00 c0       	rjmp	.+0      	; 0x1164 <__stack+0xd05>
+    1164:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+    1166:	1b ba       	out	0x1b, r1	; 27
+    1168:	8f ef       	ldi	r24, 0xFF	; 255
+    116a:	94 e3       	ldi	r25, 0x34	; 52
+    116c:	ac e0       	ldi	r26, 0x0C	; 12
+    116e:	81 50       	subi	r24, 0x01	; 1
+    1170:	90 40       	sbci	r25, 0x00	; 0
+    1172:	a0 40       	sbci	r26, 0x00	; 0
+    1174:	e1 f7       	brne	.-8      	; 0x116e <__stack+0xd0f>
+    1176:	00 c0       	rjmp	.+0      	; 0x1178 <__stack+0xd19>
+    1178:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+    117a:	ab 98       	cbi	0x15, 3	; 21
+    117c:	8f ed       	ldi	r24, 0xDF	; 223
+    117e:	93 e9       	ldi	r25, 0x93	; 147
+    1180:	a4 e0       	ldi	r26, 0x04	; 4
+    1182:	81 50       	subi	r24, 0x01	; 1
+    1184:	90 40       	sbci	r25, 0x00	; 0
+    1186:	a0 40       	sbci	r26, 0x00	; 0
+    1188:	e1 f7       	brne	.-8      	; 0x1182 <__stack+0xd23>
+    118a:	00 c0       	rjmp	.+0      	; 0x118c <__stack+0xd2d>
+    118c:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+    118e:	ab 9a       	sbi	0x15, 3	; 21
+						
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    1190:	80 e8       	ldi	r24, 0x80	; 128
+    1192:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+    1196:	c5 01       	movw	r24, r10
+    1198:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    119c:	80 ec       	ldi	r24, 0xC0	; 192
+    119e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+    11a2:	ce 01       	movw	r24, r28
+    11a4:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+    11a8:	8b b3       	in	r24, 0x1b	; 27
+    11aa:	80 69       	ori	r24, 0x90	; 144
+    11ac:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+    11ae:	8b b3       	in	r24, 0x1b	; 27
+    11b0:	8f 79       	andi	r24, 0x9F	; 159
+    11b2:	8b bb       	out	0x1b, r24	; 27
+    11b4:	8f eb       	ldi	r24, 0xBF	; 191
+    11b6:	97 e2       	ldi	r25, 0x27	; 39
+    11b8:	a9 e0       	ldi	r26, 0x09	; 9
+    11ba:	81 50       	subi	r24, 0x01	; 1
+    11bc:	90 40       	sbci	r25, 0x00	; 0
+    11be:	a0 40       	sbci	r26, 0x00	; 0
+    11c0:	e1 f7       	brne	.-8      	; 0x11ba <__stack+0xd5b>
+    11c2:	00 c0       	rjmp	.+0      	; 0x11c4 <__stack+0xd65>
+    11c4:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+    11c6:	1b ba       	out	0x1b, r1	; 27
+    11c8:	8f e3       	ldi	r24, 0x3F	; 63
+    11ca:	9d e0       	ldi	r25, 0x0D	; 13
+    11cc:	a3 e0       	ldi	r26, 0x03	; 3
+    11ce:	81 50       	subi	r24, 0x01	; 1
+    11d0:	90 40       	sbci	r25, 0x00	; 0
+    11d2:	a0 40       	sbci	r26, 0x00	; 0
+    11d4:	e1 f7       	brne	.-8      	; 0x11ce <__stack+0xd6f>
+    11d6:	00 c0       	rjmp	.+0      	; 0x11d8 <__stack+0xd79>
+    11d8:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+    11da:	81 e0       	ldi	r24, 0x01	; 1
+    11dc:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+     /************************************************************************/
+	/*                Tis Hazari Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+    11e0:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+    11e2:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+    11e4:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+    11e6:	db 98       	cbi	0x1b, 3	; 27
+    11e8:	8f e7       	ldi	r24, 0x7F	; 127
+    11ea:	9a e1       	ldi	r25, 0x1A	; 26
+    11ec:	a6 e0       	ldi	r26, 0x06	; 6
+    11ee:	81 50       	subi	r24, 0x01	; 1
+    11f0:	90 40       	sbci	r25, 0x00	; 0
+    11f2:	a0 40       	sbci	r26, 0x00	; 0
+    11f4:	e1 f7       	brne	.-8      	; 0x11ee <__stack+0xd8f>
+    11f6:	00 c0       	rjmp	.+0      	; 0x11f8 <__stack+0xd99>
+    11f8:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+    11fa:	80 e8       	ldi	r24, 0x80	; 128
+    11fc:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+    1200:	c7 01       	movw	r24, r14
+    1202:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    1206:	80 ec       	ldi	r24, 0xC0	; 192
+    1208:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("   Tis Hazari    ");
+    120c:	81 ec       	ldi	r24, 0xC1	; 193
+    120e:	92 e0       	ldi	r25, 0x02	; 2
+    1210:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    1214:	8f ef       	ldi	r24, 0xFF	; 255
+    1216:	99 e6       	ldi	r25, 0x69	; 105
+    1218:	a8 e1       	ldi	r26, 0x18	; 24
+    121a:	81 50       	subi	r24, 0x01	; 1
+    121c:	90 40       	sbci	r25, 0x00	; 0
+    121e:	a0 40       	sbci	r26, 0x00	; 0
+    1220:	e1 f7       	brne	.-8      	; 0x121a <__stack+0xdbb>
+    1222:	00 c0       	rjmp	.+0      	; 0x1224 <__stack+0xdc5>
+    1224:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+    1226:	81 e0       	ldi	r24, 0x01	; 1
+    1228:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+    122c:	1b ba       	out	0x1b, r1	; 27
+    122e:	8f e7       	ldi	r24, 0x7F	; 127
+    1230:	9a e1       	ldi	r25, 0x1A	; 26
+    1232:	a6 e0       	ldi	r26, 0x06	; 6
+    1234:	81 50       	subi	r24, 0x01	; 1
+    1236:	90 40       	sbci	r25, 0x00	; 0
+    1238:	a0 40       	sbci	r26, 0x00	; 0
+    123a:	e1 f7       	brne	.-8      	; 0x1234 <__stack+0xdd5>
+    123c:	00 c0       	rjmp	.+0      	; 0x123e <__stack+0xddf>
+    123e:	00 00       	nop
+_delay_ms(2000);
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    1240:	80 e8       	ldi	r24, 0x80	; 128
+    1242:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("    Tis Hazari     ");
+    1246:	83 ed       	ldi	r24, 0xD3	; 211
+    1248:	92 e0       	ldi	r25, 0x02	; 2
+    124a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    124e:	80 ec       	ldi	r24, 0xC0	; 192
+    1250:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+    1254:	c6 01       	movw	r24, r12
+    1256:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    125a:	8f eb       	ldi	r24, 0xBF	; 191
+    125c:	97 e2       	ldi	r25, 0x27	; 39
+    125e:	a9 e0       	ldi	r26, 0x09	; 9
+    1260:	81 50       	subi	r24, 0x01	; 1
+    1262:	90 40       	sbci	r25, 0x00	; 0
+    1264:	a0 40       	sbci	r26, 0x00	; 0
+    1266:	e1 f7       	brne	.-8      	; 0x1260 <__stack+0xe01>
+    1268:	00 c0       	rjmp	.+0      	; 0x126a <__stack+0xe0b>
+    126a:	00 00       	nop
+	_delay_ms(3000);
+
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+    126c:	ab 98       	cbi	0x15, 3	; 21
+    126e:	8f ed       	ldi	r24, 0xDF	; 223
+    1270:	93 e9       	ldi	r25, 0x93	; 147
+    1272:	a4 e0       	ldi	r26, 0x04	; 4
+    1274:	81 50       	subi	r24, 0x01	; 1
+    1276:	90 40       	sbci	r25, 0x00	; 0
+    1278:	a0 40       	sbci	r26, 0x00	; 0
+    127a:	e1 f7       	brne	.-8      	; 0x1274 <__stack+0xe15>
+    127c:	00 c0       	rjmp	.+0      	; 0x127e <__stack+0xe1f>
+    127e:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+    1280:	ab 9a       	sbi	0x15, 3	; 21
+						
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    1282:	80 e8       	ldi	r24, 0x80	; 128
+    1284:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+    1288:	c8 01       	movw	r24, r16
+    128a:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    128e:	80 ec       	ldi	r24, 0xC0	; 192
+    1290:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+    1294:	ce 01       	movw	r24, r28
+    1296:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    129a:	8f e7       	ldi	r24, 0x7F	; 127
+    129c:	9a e1       	ldi	r25, 0x1A	; 26
+    129e:	a6 e0       	ldi	r26, 0x06	; 6
+    12a0:	81 50       	subi	r24, 0x01	; 1
+    12a2:	90 40       	sbci	r25, 0x00	; 0
+    12a4:	a0 40       	sbci	r26, 0x00	; 0
+    12a6:	e1 f7       	brne	.-8      	; 0x12a0 <__stack+0xe41>
+    12a8:	00 c0       	rjmp	.+0      	; 0x12aa <__stack+0xe4b>
+    12aa:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+    12ac:	8b b3       	in	r24, 0x1b	; 27
+    12ae:	80 66       	ori	r24, 0x60	; 96
+    12b0:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+    12b2:	dc 98       	cbi	0x1b, 4	; 27
+    12b4:	8f eb       	ldi	r24, 0xBF	; 191
+    12b6:	97 e2       	ldi	r25, 0x27	; 39
+    12b8:	a9 e0       	ldi	r26, 0x09	; 9
+    12ba:	81 50       	subi	r24, 0x01	; 1
+    12bc:	90 40       	sbci	r25, 0x00	; 0
+    12be:	a0 40       	sbci	r26, 0x00	; 0
+    12c0:	e1 f7       	brne	.-8      	; 0x12ba <__stack+0xe5b>
+    12c2:	00 c0       	rjmp	.+0      	; 0x12c4 <__stack+0xe65>
+    12c4:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+    12c6:	1b ba       	out	0x1b, r1	; 27
+    12c8:	8f ef       	ldi	r24, 0xFF	; 255
+    12ca:	94 e3       	ldi	r25, 0x34	; 52
+    12cc:	ac e0       	ldi	r26, 0x0C	; 12
+    12ce:	81 50       	subi	r24, 0x01	; 1
+    12d0:	90 40       	sbci	r25, 0x00	; 0
+    12d2:	a0 40       	sbci	r26, 0x00	; 0
+    12d4:	e1 f7       	brne	.-8      	; 0x12ce <__stack+0xe6f>
+    12d6:	00 c0       	rjmp	.+0      	; 0x12d8 <__stack+0xe79>
+    12d8:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+    12da:	ab 98       	cbi	0x15, 3	; 21
+    12dc:	8f ed       	ldi	r24, 0xDF	; 223
+    12de:	93 e9       	ldi	r25, 0x93	; 147
+    12e0:	a4 e0       	ldi	r26, 0x04	; 4
+    12e2:	81 50       	subi	r24, 0x01	; 1
+    12e4:	90 40       	sbci	r25, 0x00	; 0
+    12e6:	a0 40       	sbci	r26, 0x00	; 0
+    12e8:	e1 f7       	brne	.-8      	; 0x12e2 <__stack+0xe83>
+    12ea:	00 c0       	rjmp	.+0      	; 0x12ec <__stack+0xe8d>
+    12ec:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+    12ee:	ab 9a       	sbi	0x15, 3	; 21
+						
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    12f0:	80 e8       	ldi	r24, 0x80	; 128
+    12f2:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+    12f6:	c5 01       	movw	r24, r10
+    12f8:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    12fc:	80 ec       	ldi	r24, 0xC0	; 192
+    12fe:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+    1302:	ce 01       	movw	r24, r28
+    1304:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+    1308:	8b b3       	in	r24, 0x1b	; 27
+    130a:	80 69       	ori	r24, 0x90	; 144
+    130c:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+    130e:	8b b3       	in	r24, 0x1b	; 27
+    1310:	8f 79       	andi	r24, 0x9F	; 159
+    1312:	8b bb       	out	0x1b, r24	; 27
+    1314:	8f eb       	ldi	r24, 0xBF	; 191
+    1316:	97 e2       	ldi	r25, 0x27	; 39
+    1318:	a9 e0       	ldi	r26, 0x09	; 9
+    131a:	81 50       	subi	r24, 0x01	; 1
+    131c:	90 40       	sbci	r25, 0x00	; 0
+    131e:	a0 40       	sbci	r26, 0x00	; 0
+    1320:	e1 f7       	brne	.-8      	; 0x131a <__stack+0xebb>
+    1322:	00 c0       	rjmp	.+0      	; 0x1324 <__stack+0xec5>
+    1324:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+    1326:	1b ba       	out	0x1b, r1	; 27
+    1328:	8f e3       	ldi	r24, 0x3F	; 63
+    132a:	9d e0       	ldi	r25, 0x0D	; 13
+    132c:	a3 e0       	ldi	r26, 0x03	; 3
+    132e:	81 50       	subi	r24, 0x01	; 1
+    1330:	90 40       	sbci	r25, 0x00	; 0
+    1332:	a0 40       	sbci	r26, 0x00	; 0
+    1334:	e1 f7       	brne	.-8      	; 0x132e <__stack+0xecf>
+    1336:	00 c0       	rjmp	.+0      	; 0x1338 <__stack+0xed9>
+    1338:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+    133a:	81 e0       	ldi	r24, 0x01	; 1
+    133c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+   
+    /************************************************************************/
+	/*                Kashmere Gate Station                                 */
+	/************************************************************************/
+	
+PORTA|=	(1<<0);  //Port A pin 0 is high
+    1340:	d8 9a       	sbi	0x1b, 0	; 27
+PORTA&=	~(1<<1);  //Port A pin 1 is low
+    1342:	d9 98       	cbi	0x1b, 1	; 27
+PORTA|=	(1<<2);  //Port A pin 2 is high
+    1344:	da 9a       	sbi	0x1b, 2	; 27
+PORTA&=	~(1<<3);  //Port A pin 3 is low
+    1346:	db 98       	cbi	0x1b, 3	; 27
+    1348:	8f e7       	ldi	r24, 0x7F	; 127
+    134a:	9a e1       	ldi	r25, 0x1A	; 26
+    134c:	a6 e0       	ldi	r26, 0x06	; 6
+    134e:	81 50       	subi	r24, 0x01	; 1
+    1350:	90 40       	sbci	r25, 0x00	; 0
+    1352:	a0 40       	sbci	r26, 0x00	; 0
+    1354:	e1 f7       	brne	.-8      	; 0x134e <__stack+0xeef>
+    1356:	00 c0       	rjmp	.+0      	; 0x1358 <__stack+0xef9>
+    1358:	00 00       	nop
+_delay_ms(2000);
+lcd_cmd(0x80);
+    135a:	80 e8       	ldi	r24, 0x80	; 128
+    135c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string(" Next Station is ");
+    1360:	c7 01       	movw	r24, r14
+    1362:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    1366:	80 ec       	ldi	r24, 0xC0	; 192
+    1368:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+lcd_string("  Kashmere Gate  ");
+    136c:	87 ee       	ldi	r24, 0xE7	; 231
+    136e:	92 e0       	ldi	r25, 0x02	; 2
+    1370:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    1374:	8f ef       	ldi	r24, 0xFF	; 255
+    1376:	99 e6       	ldi	r25, 0x69	; 105
+    1378:	a8 e1       	ldi	r26, 0x18	; 24
+    137a:	81 50       	subi	r24, 0x01	; 1
+    137c:	90 40       	sbci	r25, 0x00	; 0
+    137e:	a0 40       	sbci	r26, 0x00	; 0
+    1380:	e1 f7       	brne	.-8      	; 0x137a <__stack+0xf1b>
+    1382:	00 c0       	rjmp	.+0      	; 0x1384 <__stack+0xf25>
+    1384:	00 00       	nop
+_delay_ms(8000);
+lcd_cmd(0x01);    //lcd clear
+    1386:	81 e0       	ldi	r24, 0x01	; 1
+    1388:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+PORTA=0x00;  //train stop
+    138c:	1b ba       	out	0x1b, r1	; 27
+    138e:	8f e7       	ldi	r24, 0x7F	; 127
+    1390:	9a e1       	ldi	r25, 0x1A	; 26
+    1392:	a6 e0       	ldi	r26, 0x06	; 6
+    1394:	81 50       	subi	r24, 0x01	; 1
+    1396:	90 40       	sbci	r25, 0x00	; 0
+    1398:	a0 40       	sbci	r26, 0x00	; 0
+    139a:	e1 f7       	brne	.-8      	; 0x1394 <__stack+0xf35>
+    139c:	00 c0       	rjmp	.+0      	; 0x139e <__stack+0xf3f>
+    139e:	00 00       	nop
+_delay_ms(2000);
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    13a0:	80 e8       	ldi	r24, 0x80	; 128
+    13a2:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  Kashmere Gate    ");
+    13a6:	0f 2e       	mov	r0, r31
+    13a8:	f9 ef       	ldi	r31, 0xF9	; 249
+    13aa:	8f 2e       	mov	r8, r31
+    13ac:	f2 e0       	ldi	r31, 0x02	; 2
+    13ae:	9f 2e       	mov	r9, r31
+    13b0:	f0 2d       	mov	r31, r0
+    13b2:	c4 01       	movw	r24, r8
+    13b4:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    13b8:	80 ec       	ldi	r24, 0xC0	; 192
+    13ba:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  METRO Station    ");
+    13be:	c6 01       	movw	r24, r12
+    13c0:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    13c4:	8f eb       	ldi	r24, 0xBF	; 191
+    13c6:	97 e2       	ldi	r25, 0x27	; 39
+    13c8:	a9 e0       	ldi	r26, 0x09	; 9
+    13ca:	81 50       	subi	r24, 0x01	; 1
+    13cc:	90 40       	sbci	r25, 0x00	; 0
+    13ce:	a0 40       	sbci	r26, 0x00	; 0
+    13d0:	e1 f7       	brne	.-8      	; 0x13ca <__stack+0xf6b>
+    13d2:	00 c0       	rjmp	.+0      	; 0x13d4 <__stack+0xf75>
+    13d4:	00 00       	nop
+	_delay_ms(3000);
+
+	lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    13d6:	80 e8       	ldi	r24, 0x80	; 128
+    13d8:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("  Kashmere Gate    ");
+    13dc:	c4 01       	movw	r24, r8
+    13de:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	
+	lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    13e2:	80 ec       	ldi	r24, 0xC0	; 192
+    13e4:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_cmd(0x1c);      // right shift 
+    13e8:	8c e1       	ldi	r24, 0x1C	; 28
+    13ea:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+	lcd_string("Train is Terminated Here");
+    13ee:	8d e0       	ldi	r24, 0x0D	; 13
+    13f0:	93 e0       	ldi	r25, 0x03	; 3
+    13f2:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    13f6:	8f e7       	ldi	r24, 0x7F	; 127
+    13f8:	9f e4       	ldi	r25, 0x4F	; 79
+    13fa:	a2 e1       	ldi	r26, 0x12	; 18
+    13fc:	81 50       	subi	r24, 0x01	; 1
+    13fe:	90 40       	sbci	r25, 0x00	; 0
+    1400:	a0 40       	sbci	r26, 0x00	; 0
+    1402:	e1 f7       	brne	.-8      	; 0x13fc <__stack+0xf9d>
+    1404:	00 c0       	rjmp	.+0      	; 0x1406 <__stack+0xfa7>
+    1406:	00 00       	nop
+	_delay_ms(6000);	
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+    1408:	ab 98       	cbi	0x15, 3	; 21
+    140a:	8f ed       	ldi	r24, 0xDF	; 223
+    140c:	93 e9       	ldi	r25, 0x93	; 147
+    140e:	a4 e0       	ldi	r26, 0x04	; 4
+    1410:	81 50       	subi	r24, 0x01	; 1
+    1412:	90 40       	sbci	r25, 0x00	; 0
+    1414:	a0 40       	sbci	r26, 0x00	; 0
+    1416:	e1 f7       	brne	.-8      	; 0x1410 <__stack+0xfb1>
+    1418:	00 c0       	rjmp	.+0      	; 0x141a <__stack+0xfbb>
+    141a:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+    141c:	ab 9a       	sbi	0x15, 3	; 21
+						
+							
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    141e:	80 e8       	ldi	r24, 0x80	; 128
+    1420:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is Open    ");
+    1424:	c8 01       	movw	r24, r16
+    1426:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    142a:	80 ec       	ldi	r24, 0xC0	; 192
+    142c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+    1430:	ce 01       	movw	r24, r28
+    1432:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+    1436:	8f e7       	ldi	r24, 0x7F	; 127
+    1438:	9a e1       	ldi	r25, 0x1A	; 26
+    143a:	a6 e0       	ldi	r26, 0x06	; 6
+    143c:	81 50       	subi	r24, 0x01	; 1
+    143e:	90 40       	sbci	r25, 0x00	; 0
+    1440:	a0 40       	sbci	r26, 0x00	; 0
+    1442:	e1 f7       	brne	.-8      	; 0x143c <__stack+0xfdd>
+    1444:	00 c0       	rjmp	.+0      	; 0x1446 <__stack+0xfe7>
+    1446:	00 00       	nop
+		_delay_ms(2000);
+		PORTA|=	(1<<5)|(1<<6);  //Port A pin 4 & 7 is high
+    1448:	8b b3       	in	r24, 0x1b	; 27
+    144a:	80 66       	ori	r24, 0x60	; 96
+    144c:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~(1<<4)|(1<<7);  //Port A pin 5 & 6 is low
+    144e:	dc 98       	cbi	0x1b, 4	; 27
+    1450:	8f eb       	ldi	r24, 0xBF	; 191
+    1452:	97 e2       	ldi	r25, 0x27	; 39
+    1454:	a9 e0       	ldi	r26, 0x09	; 9
+    1456:	81 50       	subi	r24, 0x01	; 1
+    1458:	90 40       	sbci	r25, 0x00	; 0
+    145a:	a0 40       	sbci	r26, 0x00	; 0
+    145c:	e1 f7       	brne	.-8      	; 0x1456 <__stack+0xff7>
+    145e:	00 c0       	rjmp	.+0      	; 0x1460 <__stack+0x1001>
+    1460:	00 00       	nop
+		_delay_ms(3000);
+		PORTA=0x00; //door open
+    1462:	1b ba       	out	0x1b, r1	; 27
+    1464:	8f ef       	ldi	r24, 0xFF	; 255
+    1466:	94 e3       	ldi	r25, 0x34	; 52
+    1468:	ac e0       	ldi	r26, 0x0C	; 12
+    146a:	81 50       	subi	r24, 0x01	; 1
+    146c:	90 40       	sbci	r25, 0x00	; 0
+    146e:	a0 40       	sbci	r26, 0x00	; 0
+    1470:	e1 f7       	brne	.-8      	; 0x146a <__stack+0x100b>
+    1472:	00 c0       	rjmp	.+0      	; 0x1474 <__stack+0x1015>
+    1474:	00 00       	nop
+		_delay_ms(4000);   //door open for 3sec
+		
+						PORTC&=~(1<<3);  //Port C pin 3 is low  & buzzer on
+    1476:	ab 98       	cbi	0x15, 3	; 21
+    1478:	8f ed       	ldi	r24, 0xDF	; 223
+    147a:	93 e9       	ldi	r25, 0x93	; 147
+    147c:	a4 e0       	ldi	r26, 0x04	; 4
+    147e:	81 50       	subi	r24, 0x01	; 1
+    1480:	90 40       	sbci	r25, 0x00	; 0
+    1482:	a0 40       	sbci	r26, 0x00	; 0
+    1484:	e1 f7       	brne	.-8      	; 0x147e <__stack+0x101f>
+    1486:	00 c0       	rjmp	.+0      	; 0x1488 <__stack+0x1029>
+    1488:	00 00       	nop
+						_delay_ms(1500);
+						PORTC|=(1<<3);     //Port C pin 3 is high & buzzer off
+    148a:	ab 9a       	sbi	0x15, 3	; 21
+						
+								
+		lcd_cmd(0x80);  // characters start from position 0 & row 1st
+    148c:	80 e8       	ldi	r24, 0x80	; 128
+    148e:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("   Door is close    ");
+    1492:	c5 01       	movw	r24, r10
+    1494:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+		lcd_cmd(0xc0);      //  characters start from position 0 & row 2nd
+    1498:	80 ec       	ldi	r24, 0xC0	; 192
+    149a:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+		lcd_string("                   ");
+    149e:	ce 01       	movw	r24, r28
+    14a0:	0e 94 6e 00 	call	0xdc	; 0xdc <lcd_string>
+	/*	PORTC|=(1<<3);     //Port C pin 3 is high
+		_delay_ms(1000);
+		PORTC&=~(1<<3);  //Port C pin 3 is low
+		_delay_ms(500); */
+	
+		PORTA|=	(1<<4)|(1<<7);  //Port A pin 4 & 7 is high
+    14a4:	8b b3       	in	r24, 0x1b	; 27
+    14a6:	80 69       	ori	r24, 0x90	; 144
+    14a8:	8b bb       	out	0x1b, r24	; 27
+		PORTA&=	~((1<<5)|(1<<6));  //Port A pin 5 & 6 is low
+    14aa:	8b b3       	in	r24, 0x1b	; 27
+    14ac:	8f 79       	andi	r24, 0x9F	; 159
+    14ae:	8b bb       	out	0x1b, r24	; 27
+    14b0:	8f eb       	ldi	r24, 0xBF	; 191
+    14b2:	97 e2       	ldi	r25, 0x27	; 39
+    14b4:	a9 e0       	ldi	r26, 0x09	; 9
+    14b6:	81 50       	subi	r24, 0x01	; 1
+    14b8:	90 40       	sbci	r25, 0x00	; 0
+    14ba:	a0 40       	sbci	r26, 0x00	; 0
+    14bc:	e1 f7       	brne	.-8      	; 0x14b6 <__stack+0x1057>
+    14be:	00 c0       	rjmp	.+0      	; 0x14c0 <__stack+0x1061>
+    14c0:	00 00       	nop
+    _delay_ms(3000);
+	
+	PORTA=0x00;                //door close
+    14c2:	1b ba       	out	0x1b, r1	; 27
+    14c4:	8f e3       	ldi	r24, 0x3F	; 63
+    14c6:	9d e0       	ldi	r25, 0x0D	; 13
+    14c8:	a3 e0       	ldi	r26, 0x03	; 3
+    14ca:	81 50       	subi	r24, 0x01	; 1
+    14cc:	90 40       	sbci	r25, 0x00	; 0
+    14ce:	a0 40       	sbci	r26, 0x00	; 0
+    14d0:	e1 f7       	brne	.-8      	; 0x14ca <__stack+0x106b>
+    14d2:	00 c0       	rjmp	.+0      	; 0x14d4 <__stack+0x1075>
+    14d4:	00 00       	nop
+	_delay_ms(1000);
+   lcd_cmd(0x01);    //lcd clear
+    14d6:	81 e0       	ldi	r24, 0x01	; 1
+    14d8:	0e 94 49 00 	call	0x92	; 0x92 <lcd_cmd>
+    14dc:	0c 94 ce 00 	jmp	0x19c	; 0x19c <main+0xa2>
+
+000014e0 <_exit>:
+    14e0:	f8 94       	cli
+
+000014e2 <__stop_program>:
+    14e2:	ff cf       	rjmp	.-2      	; 0x14e2 <__stop_program>
